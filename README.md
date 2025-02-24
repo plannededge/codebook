@@ -1,7 +1,7 @@
 # codebook
 
 ## overview
-this repository serves as our central knowledge base for development practices and coding standards. it contains guidelines, patterns, and workflows that our team follows to maintain consistency and quality across all projects.
+this repository serves as our central knowledge base for development practices, coding standards, and GitHub project management. it contains guidelines, patterns, and workflows that our team follows to maintain consistency and quality across all projects.
 
 ## purpose
 - centralise all development documentation
@@ -12,28 +12,34 @@ this repository serves as our central knowledge base for development practices a
 
 ## structure
 📁 codebook
-├── 📁 git
-│   ├── branching.md
-│   ├── commits.md
-│   └── workflow.md
-├── 📁 standards
-│   ├── naming.md
-│   └── patterns.md
-├── 📁 workflows
-│   ├── cicd.md
-│   └── deployment.md
-├── 📁 guides
-│   ├── quickstart.md
-│   └── troubleshooting.md
-└── 📁 templates
+├── 📁 github/
+│ ├── issues.md # GitHub issues guidelines and best practices
+│ ├── labels.md # Conventions for using GitHub labels and tags
+│ └── project-naming.md # Standard naming conventions for GitHub projects and directories
+├── 📁 git/
+│ ├── branching.md
+│ ├── commits.md
+│ └── workflow.md
+├── 📁 standards/
+│ ├── naming.md # Naming conventions for code & projects (updated to include GitHub)
+│ └── patterns.md
+├── 📁 workflows/
+│ ├── cicd.md
+│ └── deployment.md
+├── 📁 guides/
+│ ├── quickstart.md
+│ ├── troubleshooting.md
+│ └── github-setup.md # Guide for setting up and managing GitHub projects
+└── 📁 templates/
 ├── readme-template.md
-└── pr-template.md
+├── pr-template.md
+└── issue-template.md # Template for GitHub issues
 
 ## versioning
 this documentation follows semantic versioning (x.y.z):
-- major (x): significant changes to practices
-- minor (y): additions to existing guidelines
-- patch (z): corrections or clarifications
+- **Major (x):** Significant changes or restructuring (e.g., complete changes to naming conventions)
+- **Minor (y):** Additions to existing guidelines (e.g., new GitHub-specific documentation)
+- **Patch (z):** Corrections or improvements
 
 ## contributing
 1. create a branch following our patterns
@@ -130,3 +136,27 @@ provide upgrade instructions if needed
 keep a changelog.md in root directory
 document all changes with clear explanations
 link issues and pull requests in changelog
+
+## GitHub Conventions
+### Project and Directory Naming
+See the [GitHub Project Naming Guidelines](github/project-naming.md) and the updated [Naming Conventions](standards/naming.md) for details on how to name your directories and set up projects in your IDE.
+
+### Issue Structure and Templates
+- **Creating Issues:**  
+  Refer to [GitHub Issues Guidelines](github/issues.md) to understand which fields are required and how to categorize your issues.
+- **Using Issue Templates:**  
+  A standard [Issue Template](templates/issue-template.md) is provided to ensure consistency.
+
+### Labels and Tags
+- **Standard Labels:**  
+  A set of recommended GitHub labels is provided in [Labels Conventions](github/labels.md). These labels help in categorizing issues, PRs, and project cards effectively.
+- **Tags in Git and GitHub:**  
+  Continue using semantic versioning tags for releases (e.g., `v1.2.3`). For Git tags, follow the command:
+  ```bash
+  git tag -a v1.2.3 -m "Release version 1.2.3: added GitHub project guidelines"
+  git push origin v1.2.3
+  ```
+
+---
+
+*This update ensures that our GitHub processes, naming conventions, and issue management are clear, consistent, and integrated with our existing development guidelines.*
