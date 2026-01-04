@@ -1,162 +1,164 @@
-# codebook
+# Codebook
 
-## overview
-this repository serves as our central knowledge base for development practices, coding standards, and GitHub project management. it contains guidelines, patterns, and workflows that our team follows to maintain consistency and quality across all projects.
+**A "Turnkey Kitchen" for AI-Assisted Software Development**
 
-## purpose
-- centralise all development documentation
-- standardise our coding practices
-- provide quick reference guides
-- maintain team-wide consistency
-- track evolution of our practices
+Codebook provides everything you need to "vibe code" high-quality, production-ready software with AI assistance. It's not just templates—it's a complete orchestration system with a Head Cook (Claude) at the helm.
 
-## structure
-📁 codebook
-├── 📁 github/
-│ ├── issues.md # GitHub issues guidelines and best practices
-│ ├── labels.md # Conventions for using GitHub labels and tags
-│ └── project-naming.md # Standard naming conventions for GitHub projects and directories
-├── 📁 git/
-│ ├── branching.md
-│ ├── commits.md
-│ └── workflow.md
-├── 📁 standards/
-│ ├── naming.md # Naming conventions for code & projects (updated to include GitHub)
-│ └── patterns.md
-├── 📁 workflows/
-│ ├── cicd.md
-│ └── deployment.md
-├── 📁 guides/
-│ ├── quickstart.md
-│ ├── troubleshooting.md
-│ └── github-setup.md # Guide for setting up and managing GitHub projects
-└── 📁 templates/
-├── readme-template.md
-├── pr-template.md
-└── issue-template.md # Template for GitHub issues
+## What is Codebook?
 
-## versioning
-this documentation follows semantic versioning (x.y.z):
-- **Major (x):** Significant changes or restructuring (e.g., complete changes to naming conventions)
-- **Minor (y):** Additions to existing guidelines (e.g., new GitHub-specific documentation)
-- **Patch (z):** Corrections or improvements
+Codebook is a structured system that transforms how you work with AI coding assistants. Instead of ad-hoc prompting, you get:
 
-## contributing
-1. create a branch following our patterns
-2. make your changes
-3. submit a pull request with clear descriptions
-4. await review from team leads
+- **Head Cook (Claude)** - An orchestrating agent that ensures your project runs smoothly
+- **Agents** - Specialized roles created on-demand as project complexity grows
+- **Skills** - Detailed procedural guides for common tasks
+- **Standards** - Consistent rules and conventions
+- **Buildlogs** - Mandatory tracking that prevents context loss
+- **DevDocs** - Comprehensive development documentation
 
-## usage
-1. clone this repository
-2. reference relevant sections as needed
-3. suggest improvements via issues
-4. keep local copy updated
+## Why Codebook?
 
-## maintenance
-documentation is reviewed and updated monthly to ensure relevance and accuracy.
+### The Problem
 
-📁 codebook/
-├── 📁 git/                      # git-related guidelines
-│   ├── branching.md            # branching strategies
-│   ├── commits.md              # commit message standards
-│   └── workflow.md             # git workflow guides
-│
-├── 📁 standards/               # coding standards
-│   ├── naming.md              # naming conventions
-│   └── patterns.md            # design patterns
-│
-├── 📁 workflows/              # process documentation
-│   ├── cicd.md               # ci/cd procedures
-│   └── deployment.md         # deployment guides
-│
-├── 📁 guides/                 # how-to guides
-│   ├── quickstart.md         # getting started
-│   └── troubleshooting.md    # common issues
-│
-└── 📁 templates/              # reusable templates
-    ├── readme-template.md     # project readme template
-    └── pr-template.md        # pull request template
+Working on software projects with AI assistants gets complicated:
+- Projects start unstructured, leading to inconsistency
+- As projects grow, AI context becomes stale
+- Code gets duplicated, errors get re-introduced
+- Decisions are lost, patterns forgotten
 
-## standard branches
+### The Solution
 
-main: houses the current official documentation
-develop: where documentation changes are collected and reviewed
-release/v1.x.x: version-specific branches for major releases
+Codebook solves this by:
+1. **Pre-flight checks** - Nothing starts until fundamentals are in place
+2. **Mandatory buildlogs** - Every decision, issue, and resolution is tracked
+3. **Skills and standards** - Consistent procedures and rules
+4. **Agent delegation** - Specialized roles for complex tasks
+5. **Cross-referenced documentation** - Everything links together with unique IDs
 
-### branch naming for documentation work
+## Quick Start
 
-content/add-new-guide: adding new documentation
-content/update-git-flow: updating existing documentation
-fix/correct-workflow: fixing errors in documentation
-enhance/clarify-patterns: improving clarity or examples
+```bash
+# Clone codebook
+git clone https://github.com/your-org/codebook.git
 
-## versioning strategy
+# Copy to your project
+cp -r codebook/.claude your-project/
+cp -r codebook/agentdocs your-project/
+cp -r codebook/buildlogs your-project/
+cp codebook/CLAUDE.md your-project/
 
-### version number format
-use semantic versioning: vMajor.Minor.Patch
-example: v1.2.3
-when to increment versions
+# Customize CLAUDE.md for your project
+# Create your first buildlog
+# Run pre-flight checklist
+```
 
-major (1.x.x): breaking changes or major restructuring
+See [Quickstart Guide](guides/quickstart.md) for detailed instructions.
 
-example: completely changing branching strategy
-triggers new release branch
+## Directory Structure
 
+```
+codebook/
+├── CLAUDE.md                 # Head Cook operating manual (START HERE)
+├── .claude/skills/           # Procedural guides (how to do things)
+├── agentdocs/                # Agent definitions (who does what)
+├── devdocs/                  # Development documentation
+│   ├── architecture/         # System design
+│   ├── business/             # Business requirements
+│   ├── data/                 # Database design
+│   └── ui/                   # UI documentation
+├── buildlogs/                # Weekly development logs (MANDATORY)
+├── standards/                # Rules and conventions
+├── templates/                # Reusable templates
+├── workflows/                # Process documentation
+└── guides/                   # How-to guides
+```
 
-minor (x.2.x): adding new documentation
+## Core Concepts
 
-example: adding new workflow guides
-no breaking changes
+### Head Cook
 
+Claude acts as the Head Cook—an orchestrator who ensures the kitchen runs smoothly. The Head Cook:
+- Runs pre-flight checks before any work
+- Delegates to specialized agents when needed
+- Maintains documentation and buildlogs
+- Prevents knowledge decay
 
-patch (x.x.3): fixes and improvements
+### Agents and Skills
 
-example: correcting typos
-clarifying existing content
+| Concept | Purpose | Example |
+|---------|---------|---------|
+| **Agent** | Who does what (role definition) | Code Chef, Review Chef |
+| **Skill** | How to do things (procedure) | git-workflow, code-quality |
 
-### version tagging
+Agents are created on-demand as project complexity requires. Start with just Head Cook.
 
-create a tag for each version:
-bashCopygit tag -a v1.2.3 -m "version 1.2.3: added deployment guides"
+### Buildlogs
 
-push tags to remote:
-bashCopygit push origin v1.2.3
+Buildlogs are **mandatory**. They track:
+- `#micro-decision` - Why you chose something
+- `#commit` - What was committed
+- `#issue-encountered` - Problems found
+- `#resolution` - How problems were solved
+- `#gap-identified` - Missing documentation
 
+### Codebook IDs
 
-### releases
+Every document has a unique identifier for reliable cross-referencing:
 
-create a github release for each major version
-include detailed changelog
-highlight breaking changes
-provide upgrade instructions if needed
+```
+CB-{CATEGORY}-{SUBCATEGORY}-{SEQUENCE}
 
-### maintaining versions
+Examples:
+CB-MASTER-001     → CLAUDE.md
+CB-AGENT-HEAD-001 → head-cook.agent.md
+CB-SKILL-GIT-001  → git-workflow.skill.md
+```
 
-keep a changelog.md in root directory
-document all changes with clear explanations
-link issues and pull requests in changelog
+## Key Files
 
-## GitHub Conventions
-### Project and Directory Naming
-See the [GitHub Project Naming Guidelines](github/project-naming.md) and the updated [Naming Conventions](standards/naming.md) for details on how to name your directories and set up projects in your IDE.
+| File | Purpose |
+|------|---------|
+| `CLAUDE.md` | Head Cook operating manual |
+| `.claude/skills/_skill-index.md` | Registry of all skills |
+| `agentdocs/_agent-index.md` | Registry of all agents |
+| `buildlogs/_buildlog-index.md` | Buildlog registry |
+| `standards/_standards-index.md` | Standards registry |
 
-### Issue Structure and Templates
-- **Creating Issues:**  
-  Refer to [GitHub Issues Guidelines](github/issues.md) to understand which fields are required and how to categorize your issues.
-- **Using Issue Templates:**  
-  A standard [Issue Template](templates/issue-template.md) is provided to ensure consistency.
+## Getting Started
 
-### Labels and Tags
-- **Standard Labels:**  
-  A set of recommended GitHub labels is provided in [Labels Conventions](github/labels.md). These labels help in categorizing issues, PRs, and project cards effectively.
-- **Tags in Git and GitHub:**  
-  Continue using semantic versioning tags for releases (e.g., `v1.2.3`). For Git tags, follow the command:
-  ```bash
-  git tag -a v1.2.3 -m "Release version 1.2.3: added GitHub project guidelines"
-  git push origin v1.2.3
-  ```
+1. **Read CLAUDE.md** - Understand how Head Cook operates
+2. **Run Pre-Flight** - Ensure fundamentals are in place
+3. **Create Buildlog** - Start tracking from day one
+4. **Follow Standards** - Consistent patterns from the start
+5. **Create Agents As Needed** - Don't over-engineer upfront
+
+## Documentation
+
+- [Quickstart Guide](guides/quickstart.md) - Get started in 5 minutes
+- [Project Setup Guide](guides/project-setup.md) - Set up a new project
+- [Standards Overview](standards/_standards-index.md) - Rules to follow
+- [Skills Overview](.claude/skills/_skill-index.md) - Available procedures
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch following `standards/naming-conventions.md`
+3. Make changes following `standards/code-patterns.md`
+4. Commit using `standards/commit-messages.md` format
+5. Submit PR using `templates/github/pr.template.md`
+
+## Versioning
+
+Codebook follows semantic versioning:
+- **Major** - Breaking changes to structure
+- **Minor** - New features, agents, skills
+- **Patch** - Fixes and improvements
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.
+
+## License
+
+[Add your license here]
 
 ---
 
-*This update ensures that our GitHub processes, naming conventions, and issue management are clear, consistent, and integrated with our existing development guidelines.*
+**Remember:** The kitchen is only as good as it is maintained. A stale codebook leads to stale code.

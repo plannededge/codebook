@@ -1,0 +1,138 @@
+# =============================================================================
+# Codebook .gitignore
+# =============================================================================
+# This file specifies intentionally untracked files that Git should ignore.
+# For project-specific ignores, add them in the appropriate section below.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Operating System Files
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# -----------------------------------------------------------------------------
+# Editor and IDE Files
+# -----------------------------------------------------------------------------
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs (IntelliJ, WebStorm, PyCharm, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+*.swp
+*.swo
+*.swn
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# -----------------------------------------------------------------------------
+# Temporary and Cache Files
+# -----------------------------------------------------------------------------
+*.tmp
+*.temp
+*.log
+*.cache
+.cache/
+tmp/
+temp/
+
+# -----------------------------------------------------------------------------
+# Environment and Secrets
+# -----------------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets/
+credentials/
+
+# -----------------------------------------------------------------------------
+# Node.js (if applicable in projects using codebook)
+# -----------------------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+.yarn/
+
+# -----------------------------------------------------------------------------
+# Python (if applicable in projects using codebook)
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+ENV/
+env/
+.eggs/
+*.egg-info/
+
+# -----------------------------------------------------------------------------
+# Build Outputs
+# -----------------------------------------------------------------------------
+dist/
+build/
+out/
+*.min.js
+*.min.css
+
+# -----------------------------------------------------------------------------
+# Testing
+# -----------------------------------------------------------------------------
+coverage/
+.nyc_output/
+*.lcov
+
+# -----------------------------------------------------------------------------
+# Documentation Generation (keep source, ignore generated)
+# -----------------------------------------------------------------------------
+# Uncomment if using auto-generated docs
+# site/
+# _site/
+# .docusaurus/
+
+# -----------------------------------------------------------------------------
+# Codebook-Specific
+# -----------------------------------------------------------------------------
+# Draft documents (prefix with underscore for drafts, but _*-index.md is tracked)
+# Note: _*-index.md files ARE tracked as they are registries
+_draft-*
+*.draft.md
+
+# Personal notes (use .personal/ for non-shared notes)
+.personal/
+
+# Backup files
+*.bak
+*.backup
+
+# -----------------------------------------------------------------------------
+# End of .gitignore
+# -----------------------------------------------------------------------------
