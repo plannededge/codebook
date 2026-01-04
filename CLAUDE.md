@@ -118,6 +118,8 @@ The following documents are dynamically referenced. Use `@ref(CODEBOOK_ID)` to r
 |-------|------|---------|
 | AGENTS | agentdocs/_agent-index.md | Registry of all agents |
 | SKILLS | .claude/skills/_skill-index.md | Registry of all skills |
+| RULES | .claude/rules/_rules-index.md | Registry of CLI rules |
+| CHECKLISTS | checklists/_checklists-index.md | Registry of all checklists |
 | STANDARDS | standards/_standards-index.md | Registry of all standards |
 | DEVDOCS | devdocs/_devdocs-index.md | Development documentation index |
 | BUILDLOGS | buildlogs/_buildlog-index.md | Buildlog index and search |
@@ -127,6 +129,8 @@ The following documents are dynamically referenced. Use `@ref(CODEBOOK_ID)` to r
 - `@ref(CB-XXX-NNN)` - Reference by Codebook ID (preferred)
 - `@skill(skill-name)` - Reference skill file
 - `@agent(agent-name)` - Reference agent file
+- `@rule(cli-name)` - Reference CLI rule file
+- `@checklist(checklist-name)` - Reference checklist file
 
 ### Example References
 
@@ -134,6 +138,8 @@ The following documents are dynamically referenced. Use `@ref(CODEBOOK_ID)` to r
 |------|-----------|
 | Head Cook agent | @ref(CB-AGENT-HEAD-001) or @agent(head-cook) |
 | Project setup skill | @ref(CB-SKILL-SETUP-001) or @skill(project-setup) |
+| GitHub CLI rules | @ref(CB-RULE-GH-001) or @rule(github-cli) |
+| Security checklist | @ref(CB-CHECK-OPENSSF-001) or @checklist(security-openssf) |
 | Naming conventions | @ref(CB-STD-NAMING-001) |
 | Architecture overview | @ref(CB-ARCH-OVERVIEW-001) |
 
@@ -254,6 +260,8 @@ The following documents are dynamically referenced. Use `@ref(CODEBOOK_ID)` to r
 | This document | CLAUDE.md | CB-MASTER-001 |
 | Agent registry | agentdocs/_agent-index.md | CB-AGENT-INDEX |
 | Skill registry | .claude/skills/_skill-index.md | CB-SKILL-INDEX |
+| Rules registry | .claude/rules/_rules-index.md | CB-RULE-INDEX |
+| Checklists registry | checklists/_checklists-index.md | CB-CHECK-INDEX |
 | Standards registry | standards/_standards-index.md | CB-STD-INDEX |
 
 ### Key Skills
@@ -265,13 +273,33 @@ The following documents are dynamically referenced. Use `@ref(CODEBOOK_ID)` to r
 | @skill(code-quality) | Code standards | During and after coding |
 | @skill(agent-creation) | Create new agents | When delegation needed |
 
+### Key CLI Rules
+
+| Rule | CLI | When to Use |
+|------|-----|-------------|
+| @rule(github-cli) | gh | GitHub issues, PRs, releases |
+| @rule(docker-cli) | docker | Container operations |
+| @rule(npm) / @rule(pnpm) / @rule(yarn) | npm/pnpm/yarn | Package management |
+| @rule(gcloud-cli) / @rule(aws-cli) | gcloud/aws | Cloud infrastructure |
+| @rule(flyctl) / @rule(vercel-cli) | fly/vercel | Deployments |
+
+### Key Checklists
+
+| Checklist | Purpose | When to Use |
+|-----------|---------|-------------|
+| @checklist(security-openssf) | Security review | Code generation, code review |
+| @checklist(design-system-scalability) | Design system maturity | Design system audit |
+
 ### Directory Map
 
 ```
 codebook/
 ├── CLAUDE.md                 # You are here
-├── .claude/skills/           # Procedural skills (how to do things)
+├── .claude/
+│   ├── skills/               # Procedural skills (how to do things)
+│   └── rules/                # CLI rules (safe CLI usage)
 ├── agentdocs/                # Agent definitions (who does what)
+├── checklists/               # Verification checklists
 ├── devdocs/                  # Development documentation
 ├── buildlogs/                # Weekly development logs (MANDATORY)
 ├── standards/                # Coding and documentation standards
@@ -339,6 +367,8 @@ Categories:
 - MASTER  : Root documents (this file)
 - AGENT   : Agent definitions
 - SKILL   : Skill files
+- RULE    : CLI rules
+- CHECK   : Checklists
 - ARCH    : Architecture documentation
 - BIZ     : Business documentation
 - DATA    : Data documentation
@@ -359,6 +389,10 @@ Categories:
 | CB-AGENT-INDEX | _agent-index.md |
 | CB-SKILL-SETUP-001 | project-setup.skill.md |
 | CB-SKILL-INDEX | _skill-index.md |
+| CB-RULE-GH-001 | github-cli.rule.md |
+| CB-RULE-INDEX | _rules-index.md |
+| CB-CHECK-OPENSSF-001 | security-openssf.checklist.md |
+| CB-CHECK-INDEX | _checklists-index.md |
 | CB-STD-NAMING-001 | naming-conventions.md |
 | CB-ARCH-OVERVIEW-001 | architecture-overview.md |
 

@@ -15,7 +15,9 @@ ai_parser_instructions: |
   This is a weekly buildlog. Entries are tagged for filtering.
   Tags: #micro-decision, #commit, #issue-encountered, #resolution,
         #gap-identified, #opportunity, #blocked, #unblocked
-  Format: YYYY-MM-DD HH:MM | TAG | Description | Related
+  Format: Time | Tag | Agent | Entry | Related
+  Agent attribution is REQUIRED for all entries.
+  Use @agent(name) format for agent references.
   Sections are marked with === SECTION ===
 ---
 
@@ -48,9 +50,9 @@ ai_parser_instructions: |
 ### Monday, << YYYY-MM-DD >>
 <!-- AI:DAY:MONDAY:START -->
 
-| Time | Tag | Entry | Related |
-|------|-----|-------|---------|
-| | | | |
+| Time | Tag | Agent | Entry | Related |
+|------|-----|-------|-------|---------|
+| | | | | |
 
 <!-- AI:DAY:MONDAY:END -->
 
@@ -59,9 +61,9 @@ ai_parser_instructions: |
 ### Tuesday, << YYYY-MM-DD >>
 <!-- AI:DAY:TUESDAY:START -->
 
-| Time | Tag | Entry | Related |
-|------|-----|-------|---------|
-| | | | |
+| Time | Tag | Agent | Entry | Related |
+|------|-----|-------|-------|---------|
+| | | | | |
 
 <!-- AI:DAY:TUESDAY:END -->
 
@@ -70,9 +72,9 @@ ai_parser_instructions: |
 ### Wednesday, << YYYY-MM-DD >>
 <!-- AI:DAY:WEDNESDAY:START -->
 
-| Time | Tag | Entry | Related |
-|------|-----|-------|---------|
-| | | | |
+| Time | Tag | Agent | Entry | Related |
+|------|-----|-------|-------|---------|
+| | | | | |
 
 <!-- AI:DAY:WEDNESDAY:END -->
 
@@ -81,9 +83,9 @@ ai_parser_instructions: |
 ### Thursday, << YYYY-MM-DD >>
 <!-- AI:DAY:THURSDAY:START -->
 
-| Time | Tag | Entry | Related |
-|------|-----|-------|---------|
-| | | | |
+| Time | Tag | Agent | Entry | Related |
+|------|-----|-------|-------|---------|
+| | | | | |
 
 <!-- AI:DAY:THURSDAY:END -->
 
@@ -92,9 +94,9 @@ ai_parser_instructions: |
 ### Friday, << YYYY-MM-DD >>
 <!-- AI:DAY:FRIDAY:START -->
 
-| Time | Tag | Entry | Related |
-|------|-----|-------|---------|
-| | | | |
+| Time | Tag | Agent | Entry | Related |
+|------|-----|-------|-------|---------|
+| | | | | |
 
 <!-- AI:DAY:FRIDAY:END -->
 
@@ -103,9 +105,9 @@ ai_parser_instructions: |
 ### Saturday, << YYYY-MM-DD >>
 <!-- AI:DAY:SATURDAY:START -->
 
-| Time | Tag | Entry | Related |
-|------|-----|-------|---------|
-| | | | |
+| Time | Tag | Agent | Entry | Related |
+|------|-----|-------|-------|---------|
+| | | | | |
 
 <!-- AI:DAY:SATURDAY:END -->
 
@@ -114,9 +116,9 @@ ai_parser_instructions: |
 ### Sunday, << YYYY-MM-DD >>
 <!-- AI:DAY:SUNDAY:START -->
 
-| Time | Tag | Entry | Related |
-|------|-----|-------|---------|
-| | | | |
+| Time | Tag | Agent | Entry | Related |
+|------|-----|-------|-------|---------|
+| | | | | |
 
 <!-- AI:DAY:SUNDAY:END -->
 

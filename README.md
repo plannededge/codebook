@@ -36,19 +36,35 @@ Codebook solves this by:
 
 ## Quick Start
 
+### One-liner Install (Recommended)
+
+Run this in your project directory:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/plannededge/codebook/main/bootstrap/init.sh)
+```
+
+Then start Claude Code - it will read CLAUDE.md and become the Head Cook.
+
+### Manual Install
+
 ```bash
 # Clone codebook
-git clone https://github.com/your-org/codebook.git
+git clone --depth 1 https://github.com/plannededge/codebook.git /tmp/codebook
 
 # Copy to your project
-cp -r codebook/.claude your-project/
-cp -r codebook/agentdocs your-project/
-cp -r codebook/buildlogs your-project/
-cp codebook/CLAUDE.md your-project/
+cp -r /tmp/codebook/.claude your-project/
+cp -r /tmp/codebook/agentdocs your-project/
+cp -r /tmp/codebook/buildlogs your-project/
+cp -r /tmp/codebook/devdocs your-project/
+cp -r /tmp/codebook/standards your-project/
+cp -r /tmp/codebook/templates your-project/
+cp -r /tmp/codebook/workflows your-project/
+cp -r /tmp/codebook/guides your-project/
+cp /tmp/codebook/CLAUDE.md your-project/
 
-# Customize CLAUDE.md for your project
-# Create your first buildlog
-# Run pre-flight checklist
+# Clean up
+rm -rf /tmp/codebook
 ```
 
 See [Quickstart Guide](guides/quickstart.md) for detailed instructions.
@@ -58,6 +74,10 @@ See [Quickstart Guide](guides/quickstart.md) for detailed instructions.
 ```
 codebook/
 ├── CLAUDE.md                 # Head Cook operating manual (START HERE)
+├── bootstrap/                # Bootstrap scripts for new projects
+│   ├── init.sh               # One-liner install script
+│   ├── CLAUDE.seed.md        # Minimal seed for manual bootstrap
+│   └── README.md             # Bootstrap documentation
 ├── .claude/skills/           # Procedural guides (how to do things)
 ├── agentdocs/                # Agent definitions (who does what)
 ├── devdocs/                  # Development documentation
@@ -118,6 +138,7 @@ CB-SKILL-GIT-001  → git-workflow.skill.md
 | File | Purpose |
 |------|---------|
 | `CLAUDE.md` | Head Cook operating manual |
+| `bootstrap/init.sh` | One-liner install script |
 | `.claude/skills/_skill-index.md` | Registry of all skills |
 | `agentdocs/_agent-index.md` | Registry of all agents |
 | `buildlogs/_buildlog-index.md` | Buildlog registry |

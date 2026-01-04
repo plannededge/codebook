@@ -140,12 +140,39 @@ Provide:
 
 ---
 
+=== CROSS-REFERENCES ===
+<!-- AI:XREF:START -->
+
+### Reports To
+- @agent(head-cook) @ref(CB-AGENT-HEAD-001)
+
+### Collaborates With
+<!-- List agents this agent works with directly -->
+- @agent(<< collaborator >>) @ref(CB-AGENT-<< ID >>-001) - << interaction type >>
+
+### Required Skills (MANDATORY)
+<!-- These skills MUST be used for domain work -->
+- @skill(<< skill-name >>) @ref(CB-SKILL-<< ID >>-001) - << purpose >>
+
+### Owns Artifacts
+<!-- See artifact-ownership.md for full matrix -->
+- << Artifact Type >> → << Location >>
+
+### Reviews For (if applicable)
+<!-- Only for agents with review authority -->
+- @agent(<< agent-name >>) - << Aspect reviewed >>
+
+<!-- AI:XREF:END -->
+
+---
+
 === RELATED DOCUMENTS ===
 <!-- AI:RELATED:START -->
 
 | Document | Codebook ID | Relationship |
 |----------|-------------|--------------|
 | head-cook.agent.md | CB-AGENT-HEAD-001 | Reports to |
+| artifact-ownership.md | CB-DEVDOC-ARTIFACT-001 | Ownership matrix |
 | << skill-file >> | CB-SKILL-<< ID >> | Primary skill |
 
 <!-- AI:RELATED:END -->
