@@ -1,16 +1,23 @@
 ---
-title: "Data Documentation Index"
-file_name: "index.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "data"
+document_name: "index.md"
+location: "devdocs/data/index.md"
+codebook_id: "CB-DATA-INDEX"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "index"
+purpose: "Index of data documentation - schema, migrations, relationships"
+category: "devdocs"
+subcategory: "data"
+status: "active"
 related_docs:
-  - "schema-design-v1.md"
-  - "migrations-v1.md"
-  - "seed-data-v1.md"
-  - "relationships-v1.md"
+  - "schema-design.md"
+  - "migrations.md"
+  - "seed-data.md"
+  - "relationships.md"
 ai_parser_instructions: |
   This document acts as an index for all data-related documentation.
+  Reference using @ref(CB-DATA-XXX-NNN).
 ---
 [!FIXED!]
 # Data Documentation Index

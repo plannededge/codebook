@@ -1,19 +1,21 @@
 ---
-title: "Application Architecture Document"
-file_name: "architecture-overview-v1.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "architecture"
+document_name: "architecture-overview.md"
+location: "devdocs/architecture/architecture-overview.md"
+codebook_id: "CB-ARCH-OVERVIEW-001"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "devdoc"
+purpose: "Comprehensive overview of the application architecture - structure, patterns, dependencies"
+category: "devdocs"
+subcategory: "architecture"
+status: "active"
 related_docs:
-  - "data-schema-v1.md"
-  - "business-requirements-v1.md"
+  - "devdocs/data/schema-design.md"
+  - "devdocs/business/requirements.md"
 ai_parser_instructions: |
-  This document uses the following markers:
-  === SECTION START === : Indicates a main section
-  --- SUBSECTION --- : Indicates a subsection
-  << VARIABLE >> : Placeholder to be filled
-  [!FIXED!] : Content that should not be modified
-  [?DYNAMIC?] : Content that should be updated regularly
+  This document uses markers: === SECTION ===, [!FIXED!], [?DYNAMIC?], << VARIABLE >>.
+  Reference using @ref(CB-ARCH-OVERVIEW-001).
 ---
 
 [!FIXED!]

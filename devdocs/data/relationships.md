@@ -1,23 +1,25 @@
 ---
-title: "Entity Relationships Documentation"
-file_name: "relationships.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "data"
+document_name: "relationships.md"
+location: "devdocs/data/relationships.md"
+codebook_id: "CB-DATA-RELATIONS-001"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "devdoc"
+purpose: "Documents entity relationships, foreign keys, and data associations"
+category: "devdocs"
+subcategory: "data"
+status: "active"
 related_docs:
-  - "data/schema-design.md"
-  - "architecture/system-overview.md"
-status: "living-document"
+  - "devdocs/data/schema-design.md"
+  - "devdocs/architecture/architecture-overview.md"
 maintainers:
   - "data-architect"
   - "lead-developer"
 ai_parser_instructions: |
-  This document uses the following markers:
-  === SECTION START === : Indicates a main section
-  --- SUBSECTION --- : Indicates a subsection
-  << VARIABLE >> : Placeholder to be filled
-  [!FIXED!] : Content that should not be modified
-  [?DYNAMIC?] : Content that should be updated regularly
+  This document covers entity relationships.
+  Use markers: === SECTION ===, [!FIXED!], [?DYNAMIC?], << VARIABLE >>.
+  Reference using @ref(CB-DATA-RELATIONS-001).
   <!-- AI:SECTION:TYPE={type} --> : AI-specific parsing sections
 ---
 

@@ -1,23 +1,22 @@
 ---
-# Document Metadata
-title: "UI Documentation Index"
-file_name: "index.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "ui"
-status: "living-document"
+document_name: "index.md"
+location: "devdocs/ui/index.md"
+codebook_id: "CB-UI-INDEX"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "index"
+purpose: "Index of UI documentation - design system, components, layouts, animations"
+category: "devdocs"
+subcategory: "ui"
+status: "active"
 maintainers:
   - "ui-lead"
   - "product-manager"
 ai_parser_instructions: |
   This document serves as the primary index for all UI-related documentation.
-  Use markers:
-  === SECTION START === : Main section
-  --- SUBSECTION --- : Subsection
-  << VARIABLE >> : Placeholder
-  [!FIXED!] : Immutable content
-  [?DYNAMIC?] : Content requiring updates
-  <!-- AI:SECTION:TYPE={type} --> : AI parsing sections
+  Use markers: === SECTION === for sections, [!FIXED!] for immutable, [?DYNAMIC?] for updatable.
+  Reference using @ref(CB-UI-XXX-NNN).
 ---
 
 [!FIXED!]

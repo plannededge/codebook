@@ -40,7 +40,7 @@ Workflows document end-to-end processes for development activities. They describ
 | Codebook ID | Workflow | File | Purpose | Status |
 |-------------|----------|------|---------|--------|
 | CB-WF-GITFLOW-001 | Git Flow | git-flow.md | Branching and merge workflow | active |
-| CB-WF-CODEREVIEW-001 | Code Review | code-review.md | PR review process | active |
+| CB-WF-CICD-001 | CI/CD Pipeline | cicd.md | Automated testing and deployment | active |
 | CB-WF-DEPLOY-001 | Deployment | deployment.md | Deployment process | active |
 [?DYNAMIC?]
 
@@ -54,8 +54,8 @@ Workflows document end-to-end processes for development activities. They describ
 ### Version Control
 - @ref(CB-WF-GITFLOW-001) - Git branching and merging
 
-### Quality
-- @ref(CB-WF-CODEREVIEW-001) - Code review process
+### CI/CD
+- @ref(CB-WF-CICD-001) - Continuous integration and deployment pipeline
 
 ### Operations
 - @ref(CB-WF-DEPLOY-001) - Deployment process

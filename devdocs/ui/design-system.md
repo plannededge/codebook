@@ -1,28 +1,26 @@
 ---
-# Document Metadata
-title: "Design System Documentation"
-file_name: "design-system.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "ui"
+document_name: "design-system.md"
+location: "devdocs/ui/design-system.md"
+codebook_id: "CB-UI-DESIGN-001"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "devdoc"
+purpose: "Defines design system standards - tokens, colors, typography, spacing"
+category: "devdocs"
+subcategory: "ui"
+status: "active"
 related_docs:
-  - "ui/components.md"
-  - "ui/layouts.md"
-  - "ui/typography.md"
-  - "ui/animations.md"
-status: "living-document"
+  - "devdocs/ui/components.md"
+  - "devdocs/ui/layouts.md"
+  - "devdocs/ui/animations.md"
 maintainers:
   - "ui-designer"
   - "frontend-lead"
 ai_parser_instructions: |
-  This document defines the design system standards and implementation.
-  Use markers:
-  === SECTION START === : Main section
-  --- SUBSECTION --- : Subsection
-  << VARIABLE >> : Placeholder
-  [!FIXED!] : Immutable content
-  [?DYNAMIC?] : Content requiring updates
-  <!-- AI:SECTION:TYPE={type} --> : AI parsing sections
+  This document defines the design system standards.
+  Use markers: === SECTION ===, [!FIXED!], [?DYNAMIC?], << VARIABLE >>.
+  Reference using @ref(CB-UI-DESIGN-001).
 ---
 
 [!FIXED!]

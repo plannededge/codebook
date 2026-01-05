@@ -1,28 +1,25 @@
 ---
-# Document Metadata
-title: "UI Components Documentation"
-file_name: "components.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "ui"
+document_name: "components.md"
+location: "devdocs/ui/components.md"
+codebook_id: "CB-UI-COMPONENTS-001"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "devdoc"
+purpose: "Documents UI component library - buttons, forms, cards, navigation"
+category: "devdocs"
+subcategory: "ui"
+status: "active"
 related_docs:
-  - "ui/design-system.md"
-  - "ui/layouts.md"
-  - "ui/accessibility.md"
-  - "ui/interactions.md"
-status: "living-document"
+  - "devdocs/ui/design-system.md"
+  - "devdocs/ui/layouts.md"
 maintainers:
   - "ui-developer"
   - "design-system-lead"
 ai_parser_instructions: |
-  This document defines UI components and their implementation details.
-  Use markers:
-  === SECTION START === : Main section
-  --- SUBSECTION --- : Subsection
-  << VARIABLE >> : Placeholder
-  [!FIXED!] : Immutable content
-  [?DYNAMIC?] : Content requiring updates
-  <!-- AI:SECTION:TYPE={type} --> : AI parsing sections
+  This document defines UI components and their implementation.
+  Use markers: === SECTION ===, [!FIXED!], [?DYNAMIC?], << VARIABLE >>.
+  Reference using @ref(CB-UI-COMPONENTS-001).
 ---
 
 [!FIXED!]

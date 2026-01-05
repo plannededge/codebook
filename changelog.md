@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-01-05
+
+### Added
+
+- **CLI Rules** - Safety and usage guidelines for 10 command-line tools
+  - `github-cli.rule.md` - GitHub CLI (gh)
+  - `docker-cli.rule.md` - Docker CLI
+  - `gcloud-cli.rule.md` - Google Cloud CLI
+  - `aws-cli.rule.md` - AWS CLI
+  - `flyctl.rule.md` - Fly.io CLI
+  - `vercel-cli.rule.md` - Vercel CLI
+  - `npm.rule.md` - npm package manager
+  - `pnpm.rule.md` - pnpm package manager
+  - `yarn.rule.md` - Yarn package manager
+  - `sentry-cli.rule.md` - Sentry CLI
+- **Checklists** - Verification checklists for quality and security
+  - `security-openssf.checklist.md` - OpenSSF security scorecard
+  - `design-system-scalability.checklist.md` - Design system maturity
+- **Bootstrap Update Mode** - `--update` flag for updating existing installations
+  - Automatic backup to `.codebook-backup/`
+  - Version tracking via `.claude/codebook-version`
+  - Update notifications via SessionStart hook
+- **MIT License** - Added LICENSE file
+
+### Changed
+
+- **Buildlogs** - Changed from mandatory to recommended
+- **Agent Registry** - Clarified separation between active agents and templates
+- **README** - Added update instructions and release pinning documentation
+
+### Fixed
+
+- **Bootstrap** - Now installs `checklists/` directory
+- **Agent Index** - Templates no longer incorrectly marked as "active"
+
 ## [2.0.0] - 2026-01-03
 
 ### Added

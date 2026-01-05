@@ -1,23 +1,25 @@
 ---
-# Document Metadata
-title: "Seed Data Documentation"
-file_name: "seed-data.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "data"
+document_name: "seed-data.md"
+location: "devdocs/data/seed-data.md"
+codebook_id: "CB-DATA-SEED-001"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "devdoc"
+purpose: "Defines seed data requirements, initial data, and test fixtures"
+category: "devdocs"
+subcategory: "data"
+status: "active"
 related_docs:
-  - "data/schema-design.md"
-  - "data/migrations.md"
-  - "data/test-data.md"
-status: "living-document"
+  - "devdocs/data/schema-design.md"
+  - "devdocs/data/migrations.md"
 maintainers:
   - "data-architect"
   - "lead-developer"
 ai_parser_instructions: |
   This document defines seed data requirements and implementation.
-  Use markers:
-  === SECTION START === : Main section
-  --- SUBSECTION --- : Subsection
+  Use markers: === SECTION ===, [!FIXED!], [?DYNAMIC?], << VARIABLE >>.
+  Reference using @ref(CB-DATA-SEED-001).
   << VARIABLE >> : Placeholder
   [!FIXED!] : Immutable content
   [?DYNAMIC?] : Content requiring updates

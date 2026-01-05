@@ -1,28 +1,26 @@
 ---
-# Document Metadata
-title: "UI Layouts Documentation"
-file_name: "layouts.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "ui"
+document_name: "layouts.md"
+location: "devdocs/ui/layouts.md"
+codebook_id: "CB-UI-LAYOUTS-001"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "devdoc"
+purpose: "Defines UI layouts, grid systems, and responsive design patterns"
+category: "devdocs"
+subcategory: "ui"
+status: "active"
 related_docs:
-  - "ui/design-system.md"
-  - "ui/components.md"
-  - "ui/responsive-design.md"
-  - "ui/animations.md"
-status: "living-document"
+  - "devdocs/ui/design-system.md"
+  - "devdocs/ui/components.md"
+  - "devdocs/ui/animations.md"
 maintainers:
   - "ui-designer"
   - "frontend-lead"
 ai_parser_instructions: |
   This document defines UI layouts and responsive design patterns.
-  Use markers:
-  === SECTION START === : Main section
-  --- SUBSECTION --- : Subsection
-  << VARIABLE >> : Placeholder
-  [!FIXED!] : Immutable content
-  [?DYNAMIC?] : Content requiring updates
-  <!-- AI:SECTION:TYPE={type} --> : AI parsing sections
+  Use markers: === SECTION ===, [!FIXED!], [?DYNAMIC?], << VARIABLE >>.
+  Reference using @ref(CB-UI-LAYOUTS-001).
 ---
 
 [!FIXED!]

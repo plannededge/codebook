@@ -1,23 +1,25 @@
 ---
-title: "Database Migrations Documentation"
-file_name: "migrations.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "data"
-related_docs: 
-  - "data/schema-design.md"
-  - "architecture/system-overview.md"
-status: "living-document"
+document_name: "migrations.md"
+location: "devdocs/data/migrations.md"
+codebook_id: "CB-DATA-MIGRATIONS-001"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "devdoc"
+purpose: "Documents database migration strategies, history, and procedures"
+category: "devdocs"
+subcategory: "data"
+status: "active"
+related_docs:
+  - "devdocs/data/schema-design.md"
+  - "devdocs/architecture/architecture-overview.md"
 maintainers:
   - "database-administrator"
   - "lead-developer"
 ai_parser_instructions: |
-  This document uses the following markers:
-  === SECTION START === : Indicates a main section
-  --- SUBSECTION --- : Indicates a subsection
-  << VARIABLE >> : Placeholder to be filled
-  [!FIXED!] : Content that should not be modified
-  [?DYNAMIC?] : Content that should be updated regularly
+  This document covers database migrations.
+  Use markers: === SECTION ===, [!FIXED!], [?DYNAMIC?], << VARIABLE >>.
+  Reference using @ref(CB-DATA-MIGRATIONS-001).
   <!-- AI:SECTION:TYPE={type} --> : AI-specific parsing sections
 ---
 

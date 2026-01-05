@@ -1,28 +1,25 @@
 ---
-# Document Metadata
-title: "User Flows Documentation"
-file_name: "user-flows.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "ui"
+document_name: "user-flows.md"
+location: "devdocs/ui/user-flows.md"
+codebook_id: "CB-UI-FLOWS-001"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "devdoc"
+purpose: "Documents user flows, journey maps, and interaction patterns"
+category: "devdocs"
+subcategory: "ui"
+status: "active"
 related_docs:
-  - "ui/layouts.md"
-  - "features/user-stories.md"
-  - "ui/interactions.md"
-  - "business/requirements.md"
-status: "living-document"
+  - "devdocs/ui/layouts.md"
+  - "devdocs/business/requirements.md"
 maintainers:
   - "ux-designer"
   - "product-manager"
 ai_parser_instructions: |
   This document defines user flows and interaction patterns.
-  Use markers:
-  === SECTION START === : Main section
-  --- SUBSECTION --- : Subsection
-  << VARIABLE >> : Placeholder
-  [!FIXED!] : Immutable content
-  [?DYNAMIC?] : Content requiring updates
-  <!-- AI:SECTION:TYPE={type} --> : AI parsing sections
+  Use markers: === SECTION ===, [!FIXED!], [?DYNAMIC?], << VARIABLE >>.
+  Reference using @ref(CB-UI-FLOWS-001).
 ---
 
 [!FIXED!]

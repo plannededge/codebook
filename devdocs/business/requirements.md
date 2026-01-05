@@ -1,13 +1,20 @@
 ---
-title: "Business Requirements Document"
-file_name: "requirements-v1.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "business"
+document_name: "requirements.md"
+location: "devdocs/business/requirements.md"
+codebook_id: "CB-BIZ-REQ-001"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "devdoc"
+purpose: "Defines functional and non-functional business requirements"
+category: "devdocs"
+subcategory: "business"
+status: "active"
 related_docs:
-  - "index.md"
+  - "devdocs/business/index.md"
 ai_parser_instructions: |
   This document details the functional and non-functional business requirements.
+  Reference using @ref(CB-BIZ-REQ-001).
 ---
 [!FIXED!]
 # Business Requirements

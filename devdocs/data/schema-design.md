@@ -1,23 +1,26 @@
 ---
-# Document Metadata
-title: "Data Schema Design Documentation"
-file_name: "schema-design.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "data"
+document_name: "schema-design.md"
+location: "devdocs/data/schema-design.md"
+codebook_id: "CB-DATA-SCHEMA-001"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "devdoc"
+purpose: "Defines database schema design, entity models, and data structures"
+category: "devdocs"
+subcategory: "data"
+status: "active"
 related_docs:
-  - "data/migrations.md"
-  - "data/relationships.md"
-  - "architecture/system-overview.md"
-status: "living-document"
+  - "devdocs/data/migrations.md"
+  - "devdocs/data/relationships.md"
+  - "devdocs/architecture/architecture-overview.md"
 maintainers:
   - "data-architect"
   - "lead-developer"
 ai_parser_instructions: |
-  This document uses the following markers:
-  === SECTION START === : Indicates a main section
-  --- SUBSECTION --- : Indicates a subsection
-  << VARIABLE >> : Placeholder to be filled
+  This document defines database schema design.
+  Use markers: === SECTION ===, [!FIXED!], [?DYNAMIC?], << VARIABLE >>.
+  Reference using @ref(CB-DATA-SCHEMA-001).
   [!FIXED!] : Content that should not be modified
   [?DYNAMIC?] : Content that should be updated regularly
   <!-- AI:SECTION:TYPE={type} --> : AI-specific parsing sections

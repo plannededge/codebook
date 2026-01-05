@@ -1,23 +1,26 @@
 ---
-# Document Metadata
-title: "Architecture Components Documentation"
-file_name: "components.md"
-version: "1.0"
-last_updated: "2025-02-24"
-category: "architecture"
+document_name: "components.md"
+location: "devdocs/architecture/components.md"
+codebook_id: "CB-ARCH-COMPONENTS-001"
+version: "1.0.0"
+date_created: "2025-02-24"
+date_last_edited: "2026-01-05"
+document_type: "devdoc"
+purpose: "Defines system architectural components and their specifications"
+category: "devdocs"
+subcategory: "architecture"
+status: "active"
 related_docs:
-  - "architecture/system-overview.md"
-  - "architecture/integration-points.md"
-  - "architecture/patterns.md"
-  - "data/schema-design.md"
-status: "living-document"
+  - "devdocs/architecture/architecture-overview.md"
+  - "devdocs/architecture/integration-points-v1.md"
+  - "devdocs/data/schema-design.md"
 maintainers:
   - "system-architect"
   - "tech-lead"
 ai_parser_instructions: |
-  This document defines system architectural components and their specifications.
-  Use markers:
-  === SECTION START === : Main section
+  This document defines system architectural components.
+  Use markers: === SECTION ===, [!FIXED!], [?DYNAMIC?].
+  Reference using @ref(CB-ARCH-COMPONENTS-001).
   --- SUBSECTION --- : Subsection
   << VARIABLE >> : Placeholder
   [!FIXED!] : Immutable content
