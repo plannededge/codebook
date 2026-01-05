@@ -135,16 +135,16 @@ Special IDs (no sequence):
 
 ```yaml
 ---
-document_name: "code-quality.skill.md"
-location: ".claude/skills/code-quality.skill.md"
-codebook_id: "CB-SKILL-CODEQUAL-001"
+document_name: "example-skill.skill.md"
+location: ".claude/skills/example-skill.skill.md"
+codebook_id: "CB-SKILL-EXAMPLE-001"
 version: "1.0.0"
 date_created: "2026-01-03"
 date_last_edited: "2026-01-03"
 document_type: "skill"
-purpose: "Procedural guide for maintaining high code quality standards"
+purpose: "Example skill demonstrating preamble format"
 category: "skills"
-subcategory: "development"
+subcategory: "examples"
 skill_metadata:
   category: "development"
   complexity: "intermediate"

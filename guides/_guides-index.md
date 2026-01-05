@@ -33,6 +33,7 @@ Guides provide practical, step-by-step instructions for common tasks. They bridg
 |-------------|-------|------|---------|--------|
 | CB-GUIDE-QUICKSTART-001 | Quickstart | quickstart.md | Get started with codebook | active |
 | CB-GUIDE-SETUP-001 | Project Setup | project-setup.md | Set up a new project | active |
+| CB-GUIDE-TROUBLESHOOT-001 | Troubleshooting | troubleshooting.md | Common issues and solutions | active |
 [?DYNAMIC?]
 
 <!-- AI:REGISTRY:END -->
@@ -47,5 +48,8 @@ Guides provide practical, step-by-step instructions for common tasks. They bridg
 
 ### Project Management
 - @ref(CB-GUIDE-SETUP-001) - Setting up new projects
+
+### Support
+- @ref(CB-GUIDE-TROUBLESHOOT-001) - Troubleshooting common issues
 
 <!-- AI:CATEGORIES:END -->
