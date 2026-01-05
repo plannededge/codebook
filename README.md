@@ -12,7 +12,7 @@ Codebook is a structured system that transforms how you work with AI coding assi
 - **Agents** - Specialized roles created on-demand as project complexity grows
 - **Skills** - Detailed procedural guides for common tasks
 - **Standards** - Consistent rules and conventions
-- **Buildlogs** - Mandatory tracking that prevents context loss
+- **Buildlogs** - Recommended tracking that prevents context loss
 - **DevDocs** - Comprehensive development documentation
 
 ## Why Codebook?
@@ -29,7 +29,7 @@ Working on software projects with AI assistants gets complicated:
 
 Codebook solves this by:
 1. **Pre-flight checks** - Nothing starts until fundamentals are in place
-2. **Mandatory buildlogs** - Every decision, issue, and resolution is tracked
+2. **Buildlog tracking** - Every decision, issue, and resolution is tracked
 3. **Skills and standards** - Consistent procedures and rules
 4. **Agent delegation** - Specialized roles for complex tasks
 5. **Cross-referenced documentation** - Everything links together with unique IDs
@@ -56,11 +56,12 @@ git clone --depth 1 https://github.com/plannededge/codebook.git /tmp/codebook
 cp -r /tmp/codebook/.claude your-project/
 cp -r /tmp/codebook/agentdocs your-project/
 cp -r /tmp/codebook/buildlogs your-project/
+cp -r /tmp/codebook/checklists your-project/
 cp -r /tmp/codebook/devdocs your-project/
+cp -r /tmp/codebook/guides your-project/
 cp -r /tmp/codebook/standards your-project/
 cp -r /tmp/codebook/templates your-project/
 cp -r /tmp/codebook/workflows your-project/
-cp -r /tmp/codebook/guides your-project/
 cp /tmp/codebook/CLAUDE.md your-project/
 
 # Clean up
@@ -78,14 +79,17 @@ codebook/
 │   ├── init.sh               # One-liner install script
 │   ├── CLAUDE.seed.md        # Minimal seed for manual bootstrap
 │   └── README.md             # Bootstrap documentation
-├── .claude/skills/           # Procedural guides (how to do things)
+├── .claude/
+│   ├── skills/               # Procedural guides (how to do things)
+│   └── rules/                # CLI usage rules (safe CLI patterns)
 ├── agentdocs/                # Agent definitions (who does what)
+├── checklists/               # Verification checklists (security, quality)
 ├── devdocs/                  # Development documentation
 │   ├── architecture/         # System design
 │   ├── business/             # Business requirements
 │   ├── data/                 # Database design
 │   └── ui/                   # UI documentation
-├── buildlogs/                # Weekly development logs (MANDATORY)
+├── buildlogs/                # Weekly development logs
 ├── standards/                # Rules and conventions
 ├── templates/                # Reusable templates
 ├── workflows/                # Process documentation
@@ -113,7 +117,7 @@ Agents are created on-demand as project complexity requires. Start with just Hea
 
 ### Buildlogs
 
-Buildlogs are **mandatory**. They track:
+Buildlogs are **recommended** for complex projects. They track:
 - `#micro-decision` - Why you chose something
 - `#commit` - What was committed
 - `#issue-encountered` - Problems found
@@ -140,7 +144,9 @@ CB-SKILL-GIT-001  → git-workflow.skill.md
 | `CLAUDE.md` | Head Cook operating manual |
 | `bootstrap/init.sh` | One-liner install script |
 | `.claude/skills/_skill-index.md` | Registry of all skills |
+| `.claude/rules/_rules-index.md` | Registry of CLI rules |
 | `agentdocs/_agent-index.md` | Registry of all agents |
+| `checklists/_checklists-index.md` | Registry of checklists |
 | `buildlogs/_buildlog-index.md` | Buildlog registry |
 | `standards/_standards-index.md` | Standards registry |
 
@@ -176,9 +182,38 @@ Codebook follows semantic versioning:
 
 See [CHANGELOG.md](CHANGELOG.md) for version history.
 
+## Updating Codebook
+
+### Update to Latest
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/plannededge/codebook/main/bootstrap/init.sh) --update
+```
+
+This will:
+1. Back up your existing files to `.codebook-backup/`
+2. Update all codebook files to the latest version
+3. Preserve the backup so you can restore if needed
+
+### Pin to Specific Version
+
+For reproducible installs, pin to a specific release tag:
+
+```bash
+# Install specific version
+bash <(curl -s https://raw.githubusercontent.com/plannededge/codebook/v1.0.0/bootstrap/init.sh)
+
+# Update to specific version
+bash <(curl -s https://raw.githubusercontent.com/plannededge/codebook/v1.0.0/bootstrap/init.sh) --update
+```
+
+### Version Tracking
+
+After installation, your codebook version is tracked in `.claude/codebook-version`. The bootstrap script will notify you when updates are available.
+
 ## License
 
-[Add your license here]
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 

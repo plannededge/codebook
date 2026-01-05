@@ -93,10 +93,12 @@ The development team (human + AI) operates with:
 - [ ] `standards/code-patterns.md` reflects chosen patterns
 - [ ] `standards/commit-messages.md` defines commit format
 
-### Build Tracking (MANDATORY)
+### Build Tracking (RECOMMENDED)
 - [ ] Current week's buildlog exists in `buildlogs/`
 - [ ] Buildlog is being actively updated
 - [ ] Previous buildlogs are properly archived
+
+**Note:** Buildlogs prevent context loss and are highly recommended for complex projects. They can be skipped for simple tasks or small projects, but missing buildlogs may result in lost decisions and repeated mistakes.
 
 ### If Any Check Fails
 
@@ -315,7 +317,9 @@ codebook/
 === BUILDLOG REQUIREMENTS ===
 <!-- AI:BUILDLOG:START -->
 
-**Buildlogs are MANDATORY. Pre-flight checklist fails without a current buildlog.**
+**Buildlogs are RECOMMENDED for all projects, especially complex ones.**
+
+Buildlogs track decisions, issues, and resolutions to prevent context loss across sessions. While not mandatory, skipping them may lead to repeated mistakes and forgotten decisions.
 
 ### Location
 

@@ -40,8 +40,10 @@ Agents are **role definitions** that specify WHO does WHAT. They define responsi
 
 ---
 
-=== REGISTERED AGENTS ===
+=== ACTIVE AGENTS ===
 <!-- AI:REGISTRY:START -->
+
+These agents have actual `.agent.md` files and are ready to use.
 
 ### Tier 0: Orchestration (CORE)
 
@@ -49,45 +51,55 @@ Agents are **role definitions** that specify WHO does WHAT. They define responsi
 |-------------|-------|------|------|--------|
 | CB-AGENT-HEAD-001 | Head Cook | head-cook.agent.md | Orchestrator - ensures kitchen runs smoothly | active |
 
+<!-- AI:REGISTRY:END -->
+
+---
+
+=== AVAILABLE AGENT TEMPLATES ===
+<!-- AI:TEMPLATES-REGISTRY:START -->
+
+These are **templates** that can be instantiated into active agents when needed.
+Use @skill(agent-creation) to create an agent from a template.
+
 ### Tier 1: Management (CORE)
 
-| Codebook ID | Agent | File | Role | Status |
-|-------------|-------|------|------|--------|
-| CB-AGENT-PM-001 | Product Manager | templates/product-manager.template.md | Requirements, Issues, Roadmap | active |
-| CB-AGENT-DELIVERY-001 | Delivery Lead | templates/delivery-lead.template.md | Releases, Versioning, Changelog | active |
-| CB-AGENT-DEVOPS-001 | DevOps Engineer | templates/devops-engineer.template.md | CI/CD, Infrastructure, Deployment | active |
+| Codebook ID | Agent | Template | Role |
+|-------------|-------|----------|------|
+| CB-AGENT-PM-001 | Product Manager | templates/product-manager.template.md | Requirements, Issues, Roadmap |
+| CB-AGENT-DELIVERY-001 | Delivery Lead | templates/delivery-lead.template.md | Releases, Versioning, Changelog |
+| CB-AGENT-DEVOPS-001 | DevOps Engineer | templates/devops-engineer.template.md | CI/CD, Infrastructure, Deployment |
 
 ### Tier 2: Quality (OPTIONAL)
 
-| Codebook ID | Agent | File | Role | Status |
-|-------------|-------|------|------|--------|
-| CB-AGENT-SECURITY-001 | Security Lead | templates/security-lead.template.md | Security Audits, Compliance | active |
-| CB-AGENT-QA-001 | QA Lead | templates/qa-lead.template.md | Testing, Quality Gates | active |
+| Codebook ID | Agent | Template | Role |
+|-------------|-------|----------|------|
+| CB-AGENT-SECURITY-001 | Security Lead | templates/security-lead.template.md | Security Audits, Compliance |
+| CB-AGENT-QA-001 | QA Lead | templates/qa-lead.template.md | Testing, Quality Gates |
 
 ### Tier 3: Development (OPTIONAL)
 
-| Codebook ID | Agent | File | Role | Status |
-|-------------|-------|------|------|--------|
-| CB-AGENT-BACKEND-001 | Backend Engineer | templates/backend-engineer.template.md | API, Services, Business Logic | active |
-| CB-AGENT-FRONTEND-001 | Frontend Engineer | templates/frontend-engineer.template.md | UI Components, State Management | active |
-| CB-AGENT-DATABASE-001 | Database Engineer | templates/database-engineer.template.md | Schema, Migrations, Queries | active |
+| Codebook ID | Agent | Template | Role |
+|-------------|-------|----------|------|
+| CB-AGENT-BACKEND-001 | Backend Engineer | templates/backend-engineer.template.md | API, Services, Business Logic |
+| CB-AGENT-FRONTEND-001 | Frontend Engineer | templates/frontend-engineer.template.md | UI Components, State Management |
+| CB-AGENT-DATABASE-001 | Database Engineer | templates/database-engineer.template.md | Schema, Migrations, Queries |
 
 ### Tier 4: Design (OPTIONAL)
 
-| Codebook ID | Agent | File | Role | Status |
-|-------------|-------|------|------|--------|
-| CB-AGENT-UIDESIGN-001 | UI Designer | templates/ui-designer.template.md | Visual Design, Design System | active |
-| CB-AGENT-UXDESIGN-001 | UX Designer | templates/ux-designer.template.md | User Flows, Usability, A11y | active |
+| Codebook ID | Agent | Template | Role |
+|-------------|-------|----------|------|
+| CB-AGENT-UIDESIGN-001 | UI Designer | templates/ui-designer.template.md | Visual Design, Design System |
+| CB-AGENT-UXDESIGN-001 | UX Designer | templates/ux-designer.template.md | User Flows, Usability, A11y |
 
 ### Tier 5: Communication (OPTIONAL)
 
-| Codebook ID | Agent | File | Role | Status |
-|-------------|-------|------|------|--------|
-| CB-AGENT-PMM-001 | Product Marketing Manager | templates/product-marketing-manager.template.md | Positioning, Messaging, GTM | active |
-| CB-AGENT-DOC-001 | Doc Chef | templates/doc-chef.template.md | Technical Documentation | active |
-| CB-AGENT-COPY-001 | Copywriter | templates/copywriter.template.md | UI Copy, User-Facing Content | active |
+| Codebook ID | Agent | Template | Role |
+|-------------|-------|----------|------|
+| CB-AGENT-PMM-001 | Product Marketing Manager | templates/product-marketing-manager.template.md | Positioning, Messaging, GTM |
+| CB-AGENT-DOC-001 | Doc Chef | templates/doc-chef.template.md | Technical Documentation |
+| CB-AGENT-COPY-001 | Copywriter | templates/copywriter.template.md | UI Copy, User-Facing Content |
 
-<!-- AI:REGISTRY:END -->
+<!-- AI:TEMPLATES-REGISTRY:END -->
 
 ---
 
