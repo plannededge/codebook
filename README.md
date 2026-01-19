@@ -46,6 +46,20 @@ bash <(curl -s https://raw.githubusercontent.com/plannededge/codebook/main/boots
 
 Then start Claude Code - it will read CLAUDE.md and become the Head Cook.
 
+### With APS (AI Attribution)
+
+To include Agentic Provenance Standard scaffolding:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/plannededge/codebook/main/bootstrap/init.sh) --with-aps
+```
+
+This adds:
+- `.aps/` directory structure
+- Agent registry template
+- Git hooks for automatic AI attribution
+- Session tracking infrastructure
+
 ### Manual Install
 
 ```bash
@@ -92,6 +106,9 @@ codebook/
 ├── buildlogs/                # Weekly development logs
 ├── standards/                # Rules and conventions
 ├── templates/                # Reusable templates
+│   ├── aps/                  # APS scaffolding (optional)
+│   ├── documents/            # Document templates
+│   └── github/               # GitHub templates
 ├── workflows/                # Process documentation
 └── guides/                   # How-to guides
 ```
@@ -135,7 +152,18 @@ Examples:
 CB-MASTER-001     → CLAUDE.md
 CB-AGENT-HEAD-001 → head-cook.agent.md
 CB-SKILL-GIT-001  → git-workflow.skill.md
+CB-STD-APS-001    → agentic-provenance.md
 ```
+
+### Agentic Provenance Standard (APS)
+
+**Optional** framework for AI attribution and auditability. When enabled, APS provides:
+- Unique agent identifiers with versioning
+- Git trailer-based attribution in commits
+- Token and cost tracking per session
+- Multi-agent collaboration support
+
+Enable during bootstrap with `--with-aps` flag. See `standards/agentic-provenance.md` for details.
 
 ## Key Files
 
@@ -148,6 +176,7 @@ CB-SKILL-GIT-001  → git-workflow.skill.md
 | `agentdocs/_agent-index.md` | Registry of all agents |
 | `checklists/_checklists-index.md` | Registry of checklists |
 | `buildlogs/_buildlog-index.md` | Buildlog registry |
+| `.aps/registry.yaml` | Agent registry (if using APS) |
 | `standards/_standards-index.md` | Standards registry |
 
 ## Getting Started

@@ -45,6 +45,7 @@ Standards define the rules and conventions that must be followed across the proj
 | CB-STD-COMMITS-001 | Commit Messages | commit-messages.md | Commit message format | active |
 | CB-STD-PR-001 | PR Structure | pr-structure.md | Pull request standards | active |
 | CB-STD-DOC-001 | Documentation | documentation.md | Documentation standards | active |
+| CB-STD-APS-001 | Agentic Provenance | agentic-provenance.md | AI attribution & versioning | active |
 [?DYNAMIC?]
 
 <!-- AI:REGISTRY:END -->
@@ -65,6 +66,9 @@ Standards define the rules and conventions that must be followed across the proj
 ### Documentation
 - @ref(CB-STD-DOC-001) - Documentation standards
 
+### AI & Provenance
+- @ref(CB-STD-APS-001) - Agentic provenance standard
+
 <!-- AI:CATEGORIES:END -->
 
 ---
@@ -80,6 +84,7 @@ Standards define the rules and conventions that must be followed across the proj
 | Code patterns | Linter/formatter |
 | Commits | Git hooks |
 | PR structure | PR template |
+| AI attribution | Git hooks + CI |
 
 ### Manual
 
@@ -88,5 +93,6 @@ Standards define the rules and conventions that must be followed across the proj
 | Documentation | Code review |
 | Complex patterns | Code review |
 | PR quality | Review process |
+| AI human review | Code review |
 
 <!-- AI:ENFORCEMENT:END -->

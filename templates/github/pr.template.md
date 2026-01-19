@@ -79,10 +79,32 @@ Related to #<< issue_number >>
 - [ ] I have added tests that prove my fix is effective or that my feature works
 - [ ] New and existing unit tests pass locally with my changes
 - [ ] Any dependent changes have been merged and published
+- [ ] AI contributions properly attributed (if applicable)
 
 ## Additional Notes
 <!-- Any other information reviewers should know -->
 << notes >>
+
+## AI Provenance (Optional)
+<!-- Complete if AI agents contributed to this PR -->
+
+**Agent(s) Used:**
+- << agent_id >> (e.g., anthropic:claude-code@1.5.0+sk7b2c#a7b3c9d2)
+
+**Session ID(s):**
+- << session_id >> (e.g., sess_feature_001)
+
+**Human Review:**
+- [ ] All AI-generated code has been reviewed by a human
+- [ ] AI attribution trailers added to commits
+
+**Contribution Type:**
+- [ ] Generate (AI wrote new code)
+- [ ] Refactor (AI restructured existing code)
+- [ ] Review (AI reviewed and suggested changes)
+- [ ] Collaborate (Mixed human-AI authorship)
+
+See @ref(CB-STD-APS-001) for Agentic Provenance Standard details.
 ```
 
 ---

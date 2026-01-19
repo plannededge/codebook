@@ -148,6 +148,17 @@ ls -la .claude/hooks/check-codebook-updates.sh
 
 Check that `settings.local.json` has the SessionStart hook configured.
 
+### APS setup incomplete
+
+If you used `--with-aps` but some files are missing:
+```bash
+# Manually create APS scaffolding
+mkdir -p .aps/agents .aps/prompts .aps/sessions .aps/reports
+cp ~/.claude/codebook-cache/templates/aps/registry.template.yaml .aps/registry.yaml
+cp ~/.claude/codebook-cache/templates/aps/git-hooks/* .git/hooks/
+chmod +x .git/hooks/prepare-commit-msg .git/hooks/commit-msg
+```
+
 ## Security
 
 The bootstrap script:
@@ -161,3 +172,33 @@ You can review the script before running:
 ```bash
 curl -s https://raw.githubusercontent.com/plannededge/codebook/main/bootstrap/init.sh | less
 ```
+
+## APS (Agentic Provenance Standard)
+
+To initialize Codebook with APS support:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/plannededge/codebook/main/bootstrap/init.sh) --with-aps
+```
+
+This creates:
+- `.aps/` directory structure (agents/, prompts/, sessions/, reports/)
+- `.aps/registry.yaml` - Agent registry template
+- Git hooks for automatic trailer addition
+- Session tracking infrastructure
+
+**What you get:**
+- Bronze tier APS compliance (basic attribution)
+- Git hooks for automatic AI trailer addition
+- Agent registry for tracking authorized agents
+- Session tracking for cost management
+
+**Next steps after APS setup:**
+1. Edit `.aps/registry.yaml` to register your agents
+2. Read `guides/aps-adoption.md` for adoption guide
+3. See `standards/agentic-provenance.md` for full specification
+
+**Without --with-aps:**
+Codebook installs without APS scaffolding. You can add it later by:
+1. Manually copying templates from `templates/aps/`
+2. Running the bootstrap script again with `--with-aps`

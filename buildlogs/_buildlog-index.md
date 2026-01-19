@@ -47,7 +47,7 @@ Without buildlogs:
 [?DYNAMIC?]
 | Week | Period | Status | File |
 |------|--------|--------|------|
-| Week 01, 2026 | 2025-12-30 to 2026-01-05 | active | buildlogs/2026/week-01.buildlog.md |
+| Week 03, 2026 | 2026-01-13 to 2026-01-19 | active | buildlogs/2026/week-03.buildlog.md |
 [?DYNAMIC?]
 
 <!-- AI:CURRENT:END -->
@@ -61,7 +61,8 @@ Without buildlogs:
 ### 2026
 | Week | Period | Status | File |
 |------|--------|--------|------|
-| Week 01 | 2025-12-30 to 2026-01-05 | active | buildlogs/2026/week-01.buildlog.md |
+| Week 03 | 2026-01-13 to 2026-01-19 | active | buildlogs/2026/week-03.buildlog.md |
+| Week 01 | 2025-12-30 to 2026-01-05 | archived | buildlogs/2026/week-01.buildlog.md |
 [?DYNAMIC?]
 
 <!-- AI:ARCHIVE:END -->

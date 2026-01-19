@@ -1,83 +1,323 @@
-Based on the search results and current best practices, I'll outline a comprehensive documentation structure optimized for both human developers and AI agents.
+---
+document_name: "documentation.md"
+location: "standards/documentation.md"
+codebook_id: "CB-STD-DOC-001"
+version: "1.0.0"
+date_created: "2026-01-03"
+date_last_edited: "2026-01-19"
+document_type: "standard"
+purpose: "Standard for project documentation structure, naming, and organization"
+category: "standards"
+subcategory: "documentation"
+related_docs:
+  - "devdocs/_devdocs-index.md"
+  - "templates/documents/preamble.template.md"
+status: "active"
+ai_parser_instructions: |
+  This document defines documentation standards.
+  Section markers: === SECTION ===
+---
 
-## Standard Documentation Structure
+# Documentation Standard
 
-**Root Directory Organization**
+[!FIXED!]
+## Purpose
+
+Consistent documentation structure enables both humans and AI agents to navigate, understand, and maintain project knowledge. This standard defines how documentation should be organized and formatted.
+
+**Key Principle**: Use `devdocs/` for development documentation, not `docs/` (which is typically for user-facing documentation).
+[!FIXED!]
+
+---
+
+=== DIRECTORY STRUCTURE ===
+<!-- AI:STRUCTURE:START -->
+
+### Root Organization
+
 ```
-docs/
-├── index.md
-├── architecture/
-├── data/
-├── business/
-├── ui/
-├── logic/
-├── features/
-├── technical/
-└── roadmap/
+devdocs/
+├── _devdocs-index.md         # Master index
+├── architecture/             # System design
+│   ├── index.md
+│   ├── architecture-overview.md
+│   ├── components.md
+│   ├── integration-points-v1.md
+│   └── deployment-architecture-v1.md
+├── data/                     # Database design
+│   ├── index.md
+│   ├── schema-design.md
+│   ├── migrations.md
+│   ├── seed-data.md
+│   └── relationships.md
+├── business/                 # Business requirements
+│   ├── index.md
+│   ├── goals.md
+│   ├── requirements.md
+│   ├── constraints.md
+│   └── scope.md
+└── ui/                       # UI documentation
+    ├── index.md
+    ├── design-system.md
+    ├── components.md
+    ├── layouts.md
+    ├── animations.md
+    └── user-flows.md
 ```
 
-## File Naming Convention
+### Category Guidelines
+
+| Category | Purpose | Examples |
+|----------|---------|----------|
+| `architecture/` | System design, components, deployment | architecture-overview.md, components.md |
+| `data/` | Database schema, migrations, relationships | schema-design.md, migrations.md |
+| `business/` | Goals, requirements, constraints | goals.md, requirements.md |
+| `ui/` | Design system, components, flows | design-system.md, components.md |
+
+<!-- AI:STRUCTURE:END -->
+
+---
+
+=== FILE NAMING ===
+<!-- AI:NAMING:START -->
+
+### Naming Convention
 
 - All lowercase
 - Use hyphens for spaces
-- Include version numbers where applicable
-- Format: `category-description-v1.md`
+- Include version numbers for versioned documents
+- Format: `category-description[-vN].md`
 
-Example:
+**Examples:**
 ```
-architecture-system-overview-v1.md
+architecture-system-overview.md
 data-schema-v1.md
-ui-components-v1.md
+ui-components.md
+integration-points-v1.md
 ```
 
-## Core Documentation Files
+### Versioning
 
-**Architecture Documentation**
-```
-docs/architecture/
-├── index.md
-├── system-overview.md
-├── components.md
-├── integration-points.md
-└── deployment-architecture.md
-```
+Include version suffix when document represents a specific version:
+- `deployment-architecture-v1.md` - Version 1 of deployment architecture
+- `schema-design-v2.md` - Version 2 of schema design
 
-**Data Documentation**
-```
-docs/data/
-├── index.md
-├── schema-design.md
-├── migrations.md
-├── seed-data.md
-└── relationships.md
-```
+Omit version for living documents that are continuously updated:
+- `architecture-overview.md` - Always current
+- `components.md` - Always current
 
-**Business Documentation**
-```
-docs/business/
-├── index.md
-├── goals.md
-├── requirements.md
-├── constraints.md
-└── scope.md
-```
+<!-- AI:NAMING:END -->
 
-**UI Documentation**
-```
-docs/ui/
-├── index.md
-├── design-system.md
-├── components.md
-├── layouts.md
-├── animations.md
-└── user-flows.md
-```
+---
 
-## Machine-Readable Format Guidelines
+=== DOCUMENT FORMAT ===
+<!-- AI:FORMAT:START -->
 
-1. Use structured headers with clear hierarchical levels[1]:
+### Markdown Structure
+
+Use structured headers with clear hierarchy:
+
 ```markdown
 ## Main Section
+
+### Subsection
+
+#### Detail Level
+
+##### Fine Detail
+```
+
+### Machine-Readable Elements
+
+**Section Markers** (for AI parsing):
+```markdown
+=== SECTION NAME ===
+<!-- AI:SECTION:START -->
+
+Content here
+
+<!-- AI:SECTION:END -->
+```
+
+**Cross-References**:
+```markdown
+See @ref(CB-STD-COMMITS-001) for commit format
+See @skill(git-workflow) for Git procedures
+See @agent(code-chef) for code generation
+```
+
+**Status Indicators**:
+```markdown
+[!FIXED!] - Content that should not be modified
+[?DYNAMIC?] - Content that requires regular updates
+```
+
+### Frontmatter (Optional)
+
+For documents that need metadata:
+
+```yaml
+---
+document_name: "example.md"
+location: "devdocs/architecture/example.md"
+version: "1.0.0"
+date_created: "2026-01-19"
+status: "active"
+---
+```
+
+<!-- AI:FORMAT:END -->
+
+---
+
+=== INDEX FILES ===
+<!-- AI:INDEXES:START -->
+
+### Purpose
+
+Every documentation category MUST have an `index.md` that:
+- Lists all documents in the category
+- Provides brief descriptions
+- Shows document status
+- Links to related categories
+
+### Index Template
+
+```markdown
+# Category Name
+
+## Overview
+
+Brief description of this category's purpose.
+
+## Documents
+
+| Document | Purpose | Status |
+|----------|---------|--------|
+| document-name.md | Brief description | active |
+| another-doc.md | Brief description | draft |
+
+## Related
+
+- See `../other-category/` for related information
+- See @ref(CB-STD-XXX-001) for standards
+```
+
+<!-- AI:INDEXES:END -->
+
+---
+
+=== CONTENT GUIDELINES ===
+<!-- AI:CONTENT:START -->
+
+### Writing Style
+
+- **Be concise**: Get to the point quickly
+- **Be specific**: Avoid vague language
+- **Be actionable**: Provide clear next steps
+- **Be current**: Update as project evolves
+
+### Code Examples
+
+Always include:
+- Language identifier in code blocks
+- Comments explaining non-obvious logic
+- Complete, runnable examples when possible
+
+```typescript
+// Good: Complete, commented example
+interface User {
+  id: string;
+  email: string;
+  // ISO 8601 timestamp
+  createdAt: string;
+}
+```
+
+### Diagrams
+
+Use Mermaid for diagrams when possible:
+
+```mermaid
+graph TD
+    A[Client] --> B[API Gateway]
+    B --> C[Service]
+    C --> D[Database]
+```
+
+### Tables
+
+Use tables for structured comparisons:
+
+| Option | Pros | Cons | Recommendation |
+|--------|------|------|----------------|
+| A | Fast | Complex | Use for X |
+| B | Simple | Slow | Use for Y |
+
+<!-- AI:CONTENT:END -->
+
+---
+
+=== MAINTENANCE ===
+<!-- AI:MAINTENANCE:START -->
+
+### Update Triggers
+
+Update documentation when:
+- Architecture changes
+- New features added
+- APIs modified
+- Data models change
+- Deployment process changes
+
+### Deprecation
+
+When deprecating documentation:
+1. Add `status: deprecated` to frontmatter
+2. Add deprecation notice at top
+3. Link to replacement document
+4. Keep for historical reference
+
+```markdown
+> **DEPRECATED**: This document is deprecated as of 2026-01-19.
+> See [new-document.md](new-document.md) for current information.
+```
+
+### Review Cycle
+
+- **Architecture docs**: Review quarterly
+- **Business docs**: Review when requirements change
+- **Data docs**: Review with each schema change
+- **UI docs**: Review with design system updates
+
+<!-- AI:MAINTENANCE:END -->
+
+---
+
+=== ANTI-PATTERNS ===
+<!-- AI:ANTIPATTERNS:START -->
+
+| Anti-Pattern | Why Bad | Alternative |
+|--------------|---------|-------------|
+| Mixing `docs/` and `devdocs/` | Confusing structure | Use `devdocs/` for dev docs |
+| No index files | Hard to navigate | Create index.md in each category |
+| Stale documentation | Misleading | Update with code changes |
+| Vague descriptions | Not actionable | Be specific and concrete |
+| No version tracking | Can't track evolution | Version significant changes |
+
+<!-- AI:ANTIPATTERNS:END -->
+
+---
+
+=== RELATED DOCUMENTS ===
+<!-- AI:RELATED:START -->
+
+| Document | Codebook ID | Relationship |
+|----------|-------------|--------------|
+| _devdocs-index.md | CB-DEVDOCS-INDEX | Master documentation index |
+| preamble.template.md | CB-TPL-PREAMBLE-001 | Document frontmatter template |
+
+<!-- AI:RELATED:END -->
 ### Subsection
 #### Component
 ```

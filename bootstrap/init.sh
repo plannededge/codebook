@@ -2,20 +2,27 @@
 # Codebook Bootstrap Script
 # Usage: bash <(curl -s https://raw.githubusercontent.com/plannededge/codebook/main/bootstrap/init.sh)
 #        bash <(curl -s https://raw.githubusercontent.com/plannededge/codebook/main/bootstrap/init.sh) --update
+#        bash <(curl -s https://raw.githubusercontent.com/plannededge/codebook/main/bootstrap/init.sh) --with-aps
 #
 # This script installs the Codebook system into your project directory.
 # Use --update to update existing codebook files (backs up first).
+# Use --with-aps to include Agentic Provenance Standard scaffolding.
 
 set -e
 
 # Parse arguments
 UPDATE_MODE=false
+WITH_APS=false
 TARGET_DIR="."
 
 while [[ $# -gt 0 ]]; do
     case $1 in
         --update|-u)
             UPDATE_MODE=true
+            shift
+            ;;
+        --with-aps)
+            WITH_APS=true
             shift
             ;;
         *)
@@ -28,7 +35,7 @@ done
 # Configuration
 CODEBOOK_REPO="https://github.com/plannededge/codebook.git"
 CODEBOOK_CACHE="$HOME/.claude/codebook-cache"
-CODEBOOK_VERSION="1.1.0"
+CODEBOOK_VERSION="1.2.0"
 BACKUP_DIR="$TARGET_DIR/.codebook-backup/$(date +%Y%m%d-%H%M%S)"
 
 # Colors for output (if terminal supports it)
@@ -240,6 +247,63 @@ else
 fi
 echo -e "${GREEN}╚══════════════════════════════════════╝${NC}"
 echo ""
+
+# APS Setup (if requested)
+if [ "$WITH_APS" = true ]; then
+    echo -e "${BLUE}Setting up Agentic Provenance Standard (APS)...${NC}"
+    echo ""
+    
+    # Create .aps directory structure
+    mkdir -p "$TARGET_DIR/.aps/agents"
+    mkdir -p "$TARGET_DIR/.aps/prompts"
+    mkdir -p "$TARGET_DIR/.aps/sessions"
+    mkdir -p "$TARGET_DIR/.aps/reports"
+    echo "  [new]    .aps/ directory structure"
+    
+    # Copy registry template
+    if [ -f "$CODEBOOK_CACHE/templates/aps/registry.template.yaml" ]; then
+        cp "$CODEBOOK_CACHE/templates/aps/registry.template.yaml" "$TARGET_DIR/.aps/registry.yaml"
+        echo "  [new]    .aps/registry.yaml"
+    else
+        echo "  [warn]   APS registry template missing in cache"
+    fi
+    
+    # Install git hooks
+    if [ -d "$TARGET_DIR/.git" ]; then
+        if [ -f "$CODEBOOK_CACHE/templates/aps/git-hooks/prepare-commit-msg" ]; then
+            cp "$CODEBOOK_CACHE/templates/aps/git-hooks/prepare-commit-msg" "$TARGET_DIR/.git/hooks/"
+            chmod +x "$TARGET_DIR/.git/hooks/prepare-commit-msg"
+            echo "  [new]    .git/hooks/prepare-commit-msg"
+        else
+            echo "  [warn]   APS prepare-commit-msg hook missing in cache"
+        fi
+        
+        if [ -f "$CODEBOOK_CACHE/templates/aps/git-hooks/commit-msg" ]; then
+            cp "$CODEBOOK_CACHE/templates/aps/git-hooks/commit-msg" "$TARGET_DIR/.git/hooks/"
+            chmod +x "$TARGET_DIR/.git/hooks/commit-msg"
+            echo "  [new]    .git/hooks/commit-msg"
+        else
+            echo "  [warn]   APS commit-msg hook missing in cache"
+        fi
+    else
+        echo "  [skip]   Git hooks (no .git directory found)"
+        echo "           Initialize git first, then copy hooks from templates/aps/git-hooks/"
+    fi
+    
+    echo ""
+    echo -e "${GREEN}✅ APS initialized (Bronze tier)${NC}"
+    echo ""
+    echo "APS Setup Complete:"
+    echo "  • Agent registry: .aps/registry.yaml"
+    echo "  • Git hooks installed (if .git exists)"
+    echo "  • Session tracking ready: .aps/sessions/"
+    echo ""
+    echo "Next steps:"
+    echo "  1. Edit .aps/registry.yaml to register your agents"
+    echo "  2. See guides/aps-adoption.md for adoption guide"
+    echo "  3. See standards/agentic-provenance.md for full spec"
+    echo ""
+fi
 
 if [ "$UPDATE_MODE" = true ]; then
     echo "Codebook has been updated to v${CODEBOOK_VERSION}."

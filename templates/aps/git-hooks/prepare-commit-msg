@@ -1,0 +1,49 @@
+#!/bin/bash
+# APS prepare-commit-msg Git Hook
+# Automatically adds APS trailers to commits from environment variables
+#
+# Installation:
+#   cp templates/aps/git-hooks/prepare-commit-msg .git/hooks/
+#   chmod +x .git/hooks/prepare-commit-msg
+#
+# Usage:
+#   export APS_AGENT_ID="anthropic:claude-code@1.5.0+sk7b2c#a7b3c9d2"
+#   export APS_HUMAN_REVIEWED="true"
+#   export APS_MODEL="claude-sonnet-4-5-20250929"
+#   export APS_KERNEL="claude-code@1.5.0"
+#   export APS_SESSION="sess_feature_001"
+#   export APS_SKILLS="code-generator@2.1.0, security-check@1.5.0"
+#   export APS_CONTRIBUTION="generate"
+#   export APS_TOKENS_IN="12450"
+#   export APS_TOKENS_OUT="3280"
+#   git commit -m "your message"
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+
+# Skip if amending, merging, or squashing
+if [ "$COMMIT_SOURCE" = "merge" ] || [ "$COMMIT_SOURCE" = "squash" ]; then
+    exit 0
+fi
+
+# Check if this is an AI-assisted commit (env vars set)
+if [ -z "$APS_AGENT_ID" ]; then
+    exit 0
+fi
+
+# Build trailer arguments
+TRAILERS="--trailer \"AI-Agent: $APS_AGENT_ID\""
+TRAILERS="$TRAILERS --trailer \"AI-Human-Reviewed: ${APS_HUMAN_REVIEWED:-false}\""
+
+[ -n "$APS_MODEL" ] && TRAILERS="$TRAILERS --trailer \"AI-Model: $APS_MODEL\""
+[ -n "$APS_KERNEL" ] && TRAILERS="$TRAILERS --trailer \"AI-Kernel: $APS_KERNEL\""
+[ -n "$APS_SESSION" ] && TRAILERS="$TRAILERS --trailer \"AI-Session: $APS_SESSION\""
+[ -n "$APS_SKILLS" ] && TRAILERS="$TRAILERS --trailer \"AI-Skills: $APS_SKILLS\""
+[ -n "$APS_CONTRIBUTION" ] && TRAILERS="$TRAILERS --trailer \"AI-Contribution: $APS_CONTRIBUTION\""
+[ -n "$APS_TOKENS_IN" ] && TRAILERS="$TRAILERS --trailer \"AI-Tokens-In: $APS_TOKENS_IN\""
+[ -n "$APS_TOKENS_OUT" ] && TRAILERS="$TRAILERS --trailer \"AI-Tokens-Out: $APS_TOKENS_OUT\""
+[ -n "$APS_SUBAGENTS" ] && TRAILERS="$TRAILERS --trailer \"AI-Subagents: $APS_SUBAGENTS\""
+[ -n "$APS_CONTRIBUTION_GRAPH" ] && TRAILERS="$TRAILERS --trailer \"AI-Contribution-Graph: $APS_CONTRIBUTION_GRAPH\""
+
+# Apply trailers using git interpret-trailers
+eval "git interpret-trailers $TRAILERS --in-place \"$COMMIT_MSG_FILE\""

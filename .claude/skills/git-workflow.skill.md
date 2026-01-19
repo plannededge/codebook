@@ -364,6 +364,114 @@ git revert -n <commit-hash>
 
 ---
 
+<!-- PROCEDURE:ai-commit:START -->
+
+### AI-Assisted Commit
+
+When committing AI-generated or AI-assisted code, follow APS (Agentic Provenance Standard).
+
+**Prerequisites:**
+- Agent registered in `.aps/registry.yaml` (if using APS)
+- Git hooks installed (optional but recommended)
+- Code has been human-reviewed
+
+**Steps:**
+
+1. **Set APS environment variables:**
+
+```bash
+# Required
+export APS_AGENT_ID="anthropic:claude-code@1.5.0+sk7b2c#a7b3c9d2"
+export APS_HUMAN_REVIEWED="true"
+
+# Recommended
+export APS_MODEL="claude-sonnet-4-5-20250929"
+export APS_KERNEL="claude-code@1.5.0"
+export APS_SESSION="sess_feature_001"
+export APS_SKILLS="code-generator@2.1.0, security-check@1.5.0"
+export APS_CONTRIBUTION="generate"
+export APS_TOKENS_IN="12450"
+export APS_TOKENS_OUT="3280"
+```
+
+2. **Stage changes:**
+
+```bash
+git add <files>
+```
+
+3. **Commit with conventional format:**
+
+```bash
+git commit -m "feat(auth): implement OAuth2 PKCE flow
+
+Implements secure OAuth2 authorization code flow with PKCE for mobile
+clients. Includes token refresh logic and secure storage integration."
+```
+
+4. **Verify trailers were added:**
+
+```bash
+git log -1 --format='%(trailers)'
+```
+
+Expected output:
+```
+AI-Agent: anthropic:claude-code@1.5.0+sk7b2c#a7b3c9d2
+AI-Model: claude-sonnet-4-5-20250929
+AI-Kernel: claude-code@1.5.0
+AI-Session: sess_feature_001
+AI-Skills: code-generator@2.1.0, security-check@1.5.0
+AI-Tokens-In: 12450
+AI-Tokens-Out: 3280
+AI-Contribution: generate
+AI-Human-Reviewed: true
+```
+
+5. **Clear environment variables (optional):**
+
+```bash
+unset APS_AGENT_ID APS_HUMAN_REVIEWED APS_MODEL APS_KERNEL APS_SESSION APS_SKILLS APS_CONTRIBUTION APS_TOKENS_IN APS_TOKENS_OUT
+```
+
+**Without Git Hooks:**
+
+If hooks aren't installed, manually add trailers:
+
+```bash
+git commit -m "feat(auth): implement OAuth2 PKCE flow
+
+Implements secure OAuth2 authorization code flow.
+
+AI-Agent: anthropic:claude-code@1.5.0+sk7b2c#a7b3c9d2
+AI-Human-Reviewed: true"
+```
+
+**Multi-Agent Workflow:**
+
+When multiple agents contribute:
+
+```bash
+export APS_AGENT_ID="anthropic:coder@1.0.0+sk123#abc12345"
+export APS_SUBAGENTS="security-reviewer#def456 (review), test-runner#ghi789 (validation)"
+export APS_CONTRIBUTION_GRAPH="main→security-reviewer→test-runner"
+export APS_HUMAN_REVIEWED="true"
+
+git commit -m "feat(api): refactor authentication middleware"
+```
+
+### Log in Buildlog
+
+```markdown
+| HH:MM | #commit | feat(auth): implement OAuth2 PKCE flow | AI-assisted (anthropic:claude-code@1.5.0), human-reviewed |
+```
+
+**See:** @ref(CB-STD-APS-001) for complete APS specification
+
+<!-- PROCEDURE:ai-commit:END -->
+
+---
+
 === ANTI-PATTERNS ===
 <!-- AI:ANTIPATTERNS:START -->
 
@@ -374,6 +482,8 @@ git revert -n <commit-hash>
 | Vague commit messages | No context | Use conventional format |
 | Committing secrets | Security risk | Use .gitignore, env vars |
 | Long-lived branches | Merge conflicts | Merge frequently |
+| AI commits without review | Quality/security risk | Always set AI-Human-Reviewed: true |
+| Missing AI attribution | Audit trail gaps | Use APS trailers for AI work |
 
 <!-- AI:ANTIPATTERNS:END -->
 
@@ -385,6 +495,7 @@ git revert -n <commit-hash>
 | Document | Codebook ID | Relationship |
 |----------|-------------|--------------|
 | commit-messages.md | CB-STD-COMMITS-001 | Message format |
+| agentic-provenance.md | CB-STD-APS-001 | AI attribution |
 | pr.template.md | CB-TPL-PR-001 | PR description |
 | git-flow.md | CB-WF-GITFLOW-001 | Full workflow |
 

@@ -27,6 +27,7 @@ Templates provide reusable starting points for common documents and artifacts. T
 - **documents/** - Document templates (changelog, release notes, etc.)
 - **github/** - GitHub-specific templates (issues, PRs, reviews)
 - **project/** - Project setup templates
+- **aps/** - Agentic Provenance Standard templates
 - **email/** - Email templates (when needed)
 [!FIXED!]
 
@@ -38,6 +39,15 @@ Templates provide reusable starting points for common documents and artifacts. T
 ```
 templates/
 ├── _templates-index.md        # This file
+├── aps/
+│   ├── cli-reference.md
+│   ├── registry.template.yaml
+│   ├── session-log.template.yaml
+│   ├── git-hooks/
+│   │   ├── prepare-commit-msg
+│   │   └── commit-msg
+│   └── github-actions/
+│       └── aps-verify.yml
 ├── documents/
 │   ├── preamble.template.md
 │   ├── readme.template.md
@@ -72,6 +82,17 @@ templates/
 | CB-TPL-README-001 | documents/readme.template.md | Project README | Doc Chef |
 | CB-TPL-CHANGELOG-001 | documents/changelog-entry.template.md | Changelog entry (keepachangelog) | Delivery Lead |
 | CB-TPL-RELEASE-001 | documents/release-notes.template.md | Release notes | Delivery Lead |
+
+### APS Templates
+
+| Codebook ID | Template | Purpose | Used By |
+|-------------|----------|---------|---------|
+| CB-TPL-APS-CLI-001 | aps/cli-reference.md | APS CLI usage reference | All developers |
+| CB-TPL-APS-REGISTRY-001 | aps/registry.template.yaml | APS agent registry template | Security Lead |
+| CB-TPL-APS-SESSION-001 | aps/session-log.template.yaml | APS session log template | Delivery Lead |
+| CB-TPL-APS-HOOK-PREP-001 | aps/git-hooks/prepare-commit-msg | Auto-add APS trailers | All developers |
+| CB-TPL-APS-HOOK-COMMIT-001 | aps/git-hooks/commit-msg | Validate APS trailers | All developers |
+| CB-TPL-APS-ACTIONS-001 | aps/github-actions/aps-verify.yml | APS CI verification | DevOps |
 
 ### GitHub Issue Templates
 

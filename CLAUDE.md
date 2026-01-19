@@ -61,6 +61,8 @@ The development team (human + AI) operates with:
 - Create new files without checking if similar ones exist
 - Skip updating buildlogs after significant work
 - Ignore gaps in documentation
+- Commit AI-generated code without proper attribution (if APS is enabled)
+- Set AI-Human-Reviewed: false when committing AI code (if APS is enabled)
 [!FIXED!]
 
 ---
@@ -99,6 +101,14 @@ The development team (human + AI) operates with:
 - [ ] Previous buildlogs are properly archived
 
 **Note:** Buildlogs prevent context loss and are highly recommended for complex projects. They can be skipped for simple tasks or small projects, but missing buildlogs may result in lost decisions and repeated mistakes.
+
+### AI Provenance (OPTIONAL - if using APS)
+- [ ] `.aps/registry.yaml` exists and agents are registered
+- [ ] Git hooks installed for automatic trailer addition
+- [ ] Team understands AI attribution requirements
+- [ ] Human review policy is defined
+
+**Note:** APS (Agentic Provenance Standard) provides AI attribution and auditability. Enable with `--with-aps` flag during bootstrap. See @ref(CB-STD-APS-001) for details.
 
 ### If Any Check Fails
 

@@ -1,0 +1,99 @@
+# APS Agent Registry Template
+# Copy to .aps/registry.yaml and customize for your project
+
+aps_version: "1.0.0"
+project:
+  name: "my-project"
+  repository: "https://github.com/org/my-project"
+
+updated: "2026-01-19T00:00:00Z"
+
+# Registered agents
+agents:
+  primary-coder:
+    # Full agent identifier
+    id: "anthropic:claude-code@1.5.0+sk7b2c#a7b3c9d2"
+    
+    # Registration metadata
+    registered: "2026-01-19T00:00:00Z"
+    registered_by: "your-email@example.com"
+    
+    # Current status: active | deprecated | suspended | retired
+    status: "active"
+    
+    description: "Primary code generation agent for feature development"
+    
+    # Configuration snapshot (for hash verification)
+    config:
+      model: "claude-sonnet-4-5-20250929"
+      kernel: "claude-code@1.5.0"
+      temperature: 0.7
+      max_tokens: 8192
+      
+      # System prompt reference (not the actual prompt)
+      system_prompt:
+        version: "1.0.0"
+        hash: "sha256:abc123..."
+        location: ".aps/prompts/coder-v1.0.0.md"  # optional
+      
+      # Available tools/skills
+      tools:
+        - name: "filesystem"
+          version: "1.0.0"
+        - name: "github"
+          version: "2.1.0"
+        - name: "web-search"
+          version: "1.0.0"
+    
+    # Permissions within this project
+    permissions:
+      allowed_paths:
+        - "src/**"
+        - "tests/**"
+        - "docs/**"
+      denied_paths:
+        - ".aps/**"
+        - "secrets/**"
+        - ".env*"
+      allowed_operations:
+        - "generate"
+        - "refactor"
+        - "test"
+        - "document"
+      require_human_review: true
+    
+    # Usage statistics (updated automatically)
+    stats:
+      total_commits: 0
+      total_tokens_in: 0
+      total_tokens_out: 0
+      last_used: null
+
+# Project-wide policies
+policies:
+  # Require human review for all AI commits?
+  require_human_review: true
+  
+  # Maximum consecutive AI commits without human commit
+  max_consecutive_ai_commits: 10
+  
+  # Allowed providers (empty = all allowed)
+  allowed_providers:
+    - "anthropic"
+    - "openai"
+    - "local"
+  
+  # Operations that always require human execution
+  human_only_operations:
+    - "release"
+    - "deploy"
+    - "security-patch"
+  
+  # Paths that agents cannot modify
+  protected_paths:
+    - ".aps/**"
+    - ".github/workflows/**"
+    - "CODEOWNERS"
+
+# Default agent for unspecified operations
+default_agent: "primary-coder"

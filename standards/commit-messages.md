@@ -333,3 +333,102 @@ jobs:
 ```
 
 <!-- AI:ENFORCEMENT:END -->
+
+---
+
+=== AI ATTRIBUTION ===
+<!-- AI:ATTRIBUTION:START -->
+
+### When to Use
+
+Add AI attribution trailers when:
+- AI agent generated or significantly modified the code
+- AI agent assisted with refactoring or review
+- Multiple agents collaborated on the change
+
+See @ref(CB-STD-APS-001) for complete Agentic Provenance Standard.
+
+### Required Trailers
+
+**All AI-assisted commits MUST include:**
+
+```
+AI-Agent: {provider}:{kernel}@{version}+{skills-hash}#{config-hash}
+AI-Human-Reviewed: true|false
+```
+
+**Example:**
+```
+AI-Agent: anthropic:claude-code@1.5.0+sk7b2c#a7b3c9d2
+AI-Human-Reviewed: true
+```
+
+### Recommended Trailers
+
+**Include when available:**
+
+```
+AI-Model: claude-sonnet-4-5-20250929
+AI-Kernel: claude-code@1.5.0
+AI-Session: sess_abc123def456
+AI-Skills: code-generator@2.1.0, security-check@1.5.0
+AI-Tokens-In: 12450
+AI-Tokens-Out: 3280
+AI-Contribution: generate|refactor|review|fix|document|test|collaborate
+```
+
+### Complete Example
+
+```
+feat(auth): implement OAuth2 PKCE flow
+
+Implements secure OAuth2 authorization code flow with PKCE for mobile
+clients. Includes token refresh logic and secure storage integration.
+
+The retry logic uses exponential backoff as recommended by Stripe docs.
+
+AI-Agent: anthropic:claude-code@1.5.0+sk7b2c#a7b3c9d2
+AI-Model: claude-sonnet-4-5-20250929
+AI-Kernel: claude-code@1.5.0
+AI-Session: sess_auth_impl_001
+AI-Skills: code-generator@2.1.0, security-check@1.5.0
+AI-Tokens-In: 12450
+AI-Tokens-Out: 3280
+AI-Contribution: generate
+AI-Human-Reviewed: true
+Reviewed-by: Alice <alice@example.com>
+```
+
+### Multi-Agent Attribution
+
+When multiple agents contribute:
+
+```
+feat(api): refactor authentication middleware
+
+Refactored auth middleware based on security review feedback.
+
+AI-Agent: anthropic:coder@1.0.0+sk123#abc12345
+AI-Subagents: security-reviewer#def456 (review), test-runner#ghi789 (validation)
+AI-Contribution-Graph: main→security-reviewer→test-runner
+AI-Human-Reviewed: true
+```
+
+### Automation
+
+Use Git hooks to automatically add trailers from environment variables:
+
+```bash
+# Set before committing
+export APS_AGENT_ID="anthropic:claude-code@1.5.0+sk7b2c#a7b3c9d2"
+export APS_HUMAN_REVIEWED="true"
+export APS_MODEL="claude-sonnet-4-5-20250929"
+export APS_SESSION="sess_feature_001"
+
+# Commit (hooks add trailers automatically)
+git commit -m "feat(auth): add OAuth2 flow"
+```
+
+See `templates/aps/git-hooks/` for hook implementations.
+
+<!-- AI:ATTRIBUTION:END -->

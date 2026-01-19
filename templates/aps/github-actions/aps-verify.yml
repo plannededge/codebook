@@ -1,0 +1,99 @@
+name: APS Verification
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  verify-aps-compliance:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for commit analysis
+      
+      - name: Verify APS Compliance
+        run: |
+          echo "Checking APS compliance for commits in this PR..."
+          
+          # Get all commits in PR
+          COMMITS=$(git rev-list origin/${{ github.base_ref }}..HEAD)
+          
+          if [ -z "$COMMITS" ]; then
+            echo "No commits to check"
+            exit 0
+          fi
+          
+          ERRORS=0
+          WARNINGS=0
+          
+          for commit in $COMMITS; do
+            echo ""
+            echo "Checking commit: $commit"
+            
+            # Get trailers
+            trailers=$(git log -1 --format='%(trailers)' $commit)
+            
+            # If AI-Agent present, verify requirements
+            if echo "$trailers" | grep -q "AI-Agent:"; then
+              echo "  ✓ AI-Agent trailer found"
+              
+              # Check for required AI-Human-Reviewed trailer
+              if echo "$trailers" | grep -q "AI-Human-Reviewed: true"; then
+                echo "  ✓ Human review confirmed"
+              elif echo "$trailers" | grep -q "AI-Human-Reviewed: false"; then
+                echo "  ✗ ERROR: AI-Human-Reviewed is false"
+                ERRORS=$((ERRORS + 1))
+              else
+                echo "  ✗ ERROR: AI-Human-Reviewed trailer missing"
+                ERRORS=$((ERRORS + 1))
+              fi
+              
+              # Check if agent is registered (if registry exists)
+              if [ -f ".aps/registry.yaml" ]; then
+                agent_id=$(echo "$trailers" | grep "AI-Agent:" | head -1 | cut -d' ' -f2-)
+                if grep -q "$agent_id" .aps/registry.yaml; then
+                  echo "  ✓ Agent registered in registry"
+                else
+                  echo "  ⚠ WARNING: Agent not found in registry"
+                  WARNINGS=$((WARNINGS + 1))
+                fi
+              fi
+            else
+              echo "  ℹ No AI attribution (human-only commit)"
+            fi
+          done
+          
+          echo ""
+          echo "========================================="
+          echo "APS Verification Summary"
+          echo "========================================="
+          echo "Commits checked: $(echo "$COMMITS" | wc -l)"
+          echo "Errors: $ERRORS"
+          echo "Warnings: $WARNINGS"
+          
+          if [ $ERRORS -gt 0 ]; then
+            echo ""
+            echo "❌ APS verification failed"
+            exit 1
+          elif [ $WARNINGS -gt 0 ]; then
+            echo ""
+            echo "⚠️  APS verification passed with warnings"
+            exit 0
+          else
+            echo ""
+            echo "✅ APS verification passed"
+            exit 0
+          fi
+      
+      - name: Check Registry Changes
+        if: always()
+        run: |
+          # If registry changed, flag for additional review
+          if git diff --name-only origin/${{ github.base_ref }}..HEAD | grep -q ".aps/"; then
+            echo "⚠️  APS configuration changed - requires security review"
+            echo "Changed files:"
+            git diff --name-only origin/${{ github.base_ref }}..HEAD | grep ".aps/"
+          fi

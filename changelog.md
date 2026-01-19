@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-01-XX
+
+### Added
+
+- **APS Bootstrap** - `--with-aps` now installs APS registry and hooks from cache templates
+- **APS Templates** - Added APS templates to templates registry for discovery
+- **APS Troubleshooting** - Corrected manual APS recovery steps
+
 ## [1.1.0] - 2026-01-05
 
 ### Added

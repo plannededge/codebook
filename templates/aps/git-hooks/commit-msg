@@ -1,0 +1,36 @@
+#!/bin/bash
+# APS commit-msg Git Hook
+# Validates APS trailers on commits
+#
+# Installation:
+#   cp templates/aps/git-hooks/commit-msg .git/hooks/
+#   chmod +x .git/hooks/commit-msg
+
+COMMIT_MSG_FILE=$1
+
+# Extract trailers
+TRAILERS=$(git interpret-trailers --parse < "$COMMIT_MSG_FILE")
+
+# Check if any AI-Agent trailer exists
+if echo "$TRAILERS" | grep -q "^AI-Agent:"; then
+    # AI commit - validate required trailers
+    if ! echo "$TRAILERS" | grep -q "^AI-Human-Reviewed:"; then
+        echo "ERROR: AI-assisted commits require AI-Human-Reviewed trailer"
+        echo "Set APS_HUMAN_REVIEWED=true before committing"
+        exit 1
+    fi
+    
+    # Validate agent is registered (if registry exists)
+    if [ -f ".aps/registry.yaml" ]; then
+        AGENT_ID=$(echo "$TRAILERS" | grep "^AI-Agent:" | head -1 | cut -d' ' -f2-)
+        if ! grep -q "$AGENT_ID" .aps/registry.yaml; then
+            echo "WARNING: Agent '$AGENT_ID' not found in .aps/registry.yaml"
+            echo "Consider registering this agent in the registry"
+            # Don't fail - just warn
+        fi
+    fi
+    
+    echo "✓ APS trailers validated"
+fi
+
+exit 0

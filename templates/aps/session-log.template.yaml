@@ -1,0 +1,71 @@
+# APS Session Log Template
+# Session logs track agent activity for cost management and audit trails
+# Store in .aps/sessions/{session_id}.yaml
+
+session_id: "sess_abc123def456"
+agent_id: "anthropic:claude-code@1.5.0+sk7b2c#a7b3c9d2"
+
+# Timing
+started: "2026-01-19T09:00:00Z"
+ended: "2026-01-19T11:30:00Z"
+duration_seconds: 9000
+
+# Status: active | completed | failed | cancelled
+status: "completed"
+
+# Task context (optional but recommended)
+task:
+  description: "Implement user authentication module"
+  issue_ref: "#142"
+  branch: "feature/auth"
+
+# Aggregate token usage
+usage:
+  input_tokens: 145230
+  output_tokens: 52847
+  cache_read_tokens: 89000
+  cache_creation_tokens: 12000
+  total_tokens: 198077
+
+# Cost calculation
+cost:
+  input_cost_usd: 0.44
+  output_cost_usd: 0.79
+  total_cost_usd: 1.23
+  pricing_model: "claude-sonnet-4-5-20250929"
+  
+# Interaction breakdown
+interactions:
+  - timestamp: "2026-01-19T09:05:00Z"
+    type: "generate"
+    input_tokens: 3200
+    output_tokens: 1850
+    files_modified:
+      - "src/auth/oauth.ts"
+      - "src/auth/types.ts"
+    commit: "abc1234"
+    
+  - timestamp: "2026-01-19T09:15:00Z"
+    type: "refactor"
+    input_tokens: 5400
+    output_tokens: 3200
+    files_modified:
+      - "src/auth/oauth.ts"
+    commit: "def5678"
+    
+  - timestamp: "2026-01-19T10:00:00Z"
+    type: "review"
+    input_tokens: 8900
+    output_tokens: 2100
+    files_modified: []
+    commit: null  # Review only, no commit
+
+# Outcome summary
+outcome:
+  commits_generated: 12
+  files_created: 8
+  files_modified: 15
+  lines_added: 1847
+  lines_removed: 523
+  tests_added: 24
+  human_interventions: 3  # Times human took over
