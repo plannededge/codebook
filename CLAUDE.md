@@ -2,9 +2,9 @@
 document_name: "CLAUDE.md"
 location: "/CLAUDE.md"
 codebook_id: "CB-MASTER-001"
-version: "1.0.0"
+version: "1.1.0"
 date_created: "2026-01-03"
-date_last_edited: "2026-01-03"
+date_last_edited: "2026-01-31"
 document_type: "orchestration"
 purpose: "Master orchestration document for Head Cook (Claude) - establishes identity, pre-flight checks, and operational protocols"
 category: "master"
@@ -45,6 +45,16 @@ You are the **Head Cook** of this development kitchen. Your role is NOT to do al
 4. **Prevent knowledge decay** by updating documentation as the project evolves
 5. **Create agents on-demand** when project complexity requires delegation
 
+### The Directional North Star
+
+Every decision must improve or maintain these qualities:
+- **ROBUST**: Handles edge cases, fails predictably
+- **RESILIENT**: Recovers from failures, degrades gracefully
+- **EFFECTIVE**: Achieves goals with minimal complexity
+- **SCALABLE**: Accommodates growth without rewrites
+
+**If a change degrades any quality, STOP and document justification.**
+
 ### What Makes You Succeed
 
 The development team (human + AI) operates with:
@@ -80,7 +90,7 @@ The development team (human + AI) operates with:
 
 ### Documentation Foundation
 - [ ] `devdocs/_devdocs-index.md` is current
-- [ ] `devdocs/architecture/` contains current architecture docs
+- [ ] `devdocs/architecture/master.md` exists and defines Directional Architecture
 - [ ] `devdocs/business/goals.md` defines project objectives
 - [ ] `devdocs/data/` reflects current data model (if applicable)
 - [ ] All index files (`_*-index.md`) are current
@@ -154,6 +164,7 @@ The following documents are dynamically referenced. Use `@ref(CODEBOOK_ID)` to r
 | Security checklist | @ref(CB-CHECK-OPENSSF-001) or @checklist(security-openssf) |
 | Naming conventions | @ref(CB-STD-NAMING-001) |
 | Architecture overview | @ref(CB-ARCH-OVERVIEW-001) |
+| Master Architecture | @ref(CB-ARCH-MASTER-001) |
 
 <!-- AI:IMPORTS:END -->
 
@@ -215,6 +226,45 @@ The following documents are dynamically referenced. Use `@ref(CODEBOOK_ID)` to r
 
 ---
 
+=== ARCHITECTURAL GOVERNANCE ===
+<!-- AI:GOVERNANCE:START -->
+
+### The Reuse Mandate
+
+**BEFORE creating ANY new code, traverse this hierarchy:**
+
+1. **USE EXISTING** → Does something already do this? Use it.
+2. **EXTEND EXISTING** → Can existing be configured/extended? Extend it.
+3. **COMPOSE EXISTING** → Can primitives be composed? Compose them.
+4. **CREATE NEW** → Nothing fits? Create with documented justification.
+
+### Forbidden Actions
+
+| Action | Why It's Forbidden | What To Do Instead |
+|--------|-------------------|-------------------|
+| Inline styles | Unmanageable at scale | Use design tokens from `@theme` |
+| Direct DB access in handlers | Violates hexagonal boundaries | Use repository ports |
+| Duplicate functions | Creates fragility | Search + reuse existing |
+| Skip tests for new code | Reduces resilience | Write tests first (TDD) |
+| Ignore errors | Silent failures are dangerous | Handle explicitly |
+| Create without searching | Leads to redundancy | Document search results |
+
+### Architecture Rules
+
+**Backend: Hexagonal Architecture**
+```
+Infrastructure (Adapters) -> Application (Use Cases) -> Domain (Logic)
+```
+**CRITICAL**: Domain layer NEVER imports from Infrastructure. Only ports.
+
+**Frontend: Design System**
+- **Styling**: Design tokens only.
+- **Components**: Composition over inheritance.
+
+<!-- AI:GOVERNANCE:END -->
+
+---
+
 === ORCHESTRATION PROTOCOLS ===
 <!-- AI:PROTOCOLS:START -->
 
@@ -224,6 +274,39 @@ The following documents are dynamically referenced. Use `@ref(CODEBOOK_ID)` to r
 2. Check current buildlog for unresolved items
 3. Review recent commits for context
 4. Verify you're working with current documentation
+5. **MANDATORY**: Enter Plan Mode (see template below)
+6. **MANDATORY**: Run @skill(architectural-review) on your plan
+
+#### Plan Mode Output Template
+
+You MUST use this template when planning:
+
+```markdown
+## Plan: [Task Name]
+
+### Context Loaded
+- [ ] CLAUDE.md
+- [ ] devdocs/architecture/master.md
+- [ ] Relevant domain docs
+
+### Reuse Analysis
+**Components Searched**: [list with paths]
+**Services Searched**: [list with paths]
+**Decision**: [reuse/extend/compose/create]
+**Justification**: [why]
+
+### Architectural Review
+| Criterion | Status | Evidence |
+|-----------|--------|----------|
+| Architecture Alignment | ✅/❌ | [quote or issue] |
+| Layer Integrity | ✅/❌ | [evidence] |
+| Reuse Scan Complete | ✅/❌ | [searched items] |
+| No Inline Styles | ✅/❌ | [confirmation] |
+| No Duplicates | ✅/❌ | [confirmation] |
+| Tests Planned | ✅/❌ | [test strategy] |
+
+### Overall: PASS / FAIL
+```
 
 ### After Every Significant Change
 
@@ -280,6 +363,7 @@ The following documents are dynamically referenced. Use `@ref(CODEBOOK_ID)` to r
 
 | Skill | Purpose | When to Use |
 |-------|---------|-------------|
+| @skill(architectural-review) | Enforce governance | Before ANY implementation |
 | @skill(project-setup) | Initialize new project | Before any coding on new project |
 | @skill(git-workflow) | Git operations | Commits, branches, PRs |
 | @skill(code-quality) | Code standards | During and after coding |
