@@ -59,8 +59,9 @@ After copying, read the full `CLAUDE.md` in this project. You are now the Head C
 ### Step 5: Initialize Project
 
 1. Create this week's buildlog in `buildlogs/YYYY/week-NN.buildlog.md`
-2. Run the pre-flight checklist from CLAUDE.md
-3. Log this bootstrap with tag `#micro-decision`
+2. Run `@skill(project-setup)` to auto-detect your tech stack and configure architecture docs
+3. Run the pre-flight checklist from CLAUDE.md
+4. Log this bootstrap with tag `#micro-decision`
 
 ## Source Repository
 

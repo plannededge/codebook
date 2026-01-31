@@ -185,6 +185,14 @@ Create minimal standards files:
 - `standards/naming-conventions.md` - How to name things
 - `standards/code-patterns.md` - Coding patterns to follow (or reference)
 
+### Step 6: Architecture Discovery
+
+Automatically detect tech stack and configure documentation:
+
+1. Run @skill(architecture-discovery)
+2. Verify `devdocs/architecture/master.md` no longer has placeholders
+3. Verify `standards/code-patterns.md` has relevant language patterns
+
 ### Step 7: Verification
 
 Run the pre-flight checklist from CLAUDE.md:
